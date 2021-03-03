@@ -16,6 +16,8 @@ import { Picker } from '@react-native-picker/picker'
 
 import { freeClimbingGrades, boulderingGrades } from '../../assets/grades'
 
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 const EditRoute = ({ navigation }) => {
     const [type, setType] = useState(false)
     const [date, setDate] = useState(new Date())
@@ -34,7 +36,7 @@ const EditRoute = ({ navigation }) => {
         setShowDatePicker(Platform.OS === 'ios')
         setDate(currentDate)
     }
-
+console.log(date)
     return (
         <ScrollView style={styles.mainContainer}>
 

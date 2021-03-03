@@ -1,0 +1,52 @@
+[
+    {
+        "type": "SPORT_CLIMBING",
+        "date": "2021-03-03",
+        "name": "Cantal Party",
+        "location": "La montagne percee",
+        "pitches": [
+            {
+                "index": 0,
+                "mode": "LEAD",
+                "grade": { "grade": "5c", "grading": "FR"},
+                "method": "ONSIGHT"
+            }
+        ]
+        
+    },
+    {
+        "type": "SPORT_CLIMBING",
+        "date": "2021-03-03",
+        "name": "voie de plusieur longueurs",
+        "location": "La montagne percee",
+        "pitches": [
+            {
+                "index": 0,
+                "mode": "LEAD",
+                "grade": { "grade": "5c", "grading": "FR"},
+                "method": "REDPOINT"
+            },
+            {
+                "index": 1,
+                "mode": "FOLLOW",
+                "grade": { "grade": "6b", "grading": "FR"},
+                "method": "FLASH"
+            },
+            {
+                "index": 2,
+                "mode": "LEAD",
+                "grade": { "grade": "6c", "grading": "FR"},
+                "method": "REDPOINT"
+            }
+        ]
+        
+    },
+    {
+        "type": "BOULDERING",
+        "date": "2021-03-04",
+        "name": "",
+        "location": "B'up",
+        "grade": { "grade": "V5", "grading": "V"},
+        "method": "ONSIGHT"
+    }
+]
