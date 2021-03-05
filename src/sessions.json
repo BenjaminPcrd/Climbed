@@ -1,0 +1,26 @@
+[
+    {
+        "date": "2021-03-05",
+        "location": "B'up",
+        "type": "INDOOR",
+        "climbs": [
+            { "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
+            { "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
+            { "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
+        ]
+    },
+    {
+        "date": "2021-03-04",
+        "location": "La montagne percee",
+        "type": "OUTDOOR",
+        "climbs": [
+            { "name": "nom 1", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "pitches": "2" },
+            { "name": "nom 2", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "name": "nom 3", "grade": { "grade": "7b", "grading": "FR" }, "mode": "FOLLOW", "style": "REDPOINT", "pitches": "4" },
+            { "name": "nom 4", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
+            { "name": "nom 5", "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
+        ]
+    }
+]
