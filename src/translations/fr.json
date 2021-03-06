@@ -7,7 +7,7 @@
 
     "addSession": "Ajouter une session",
     "deleteSession": "Supprimer la session",
-    "deleteSessionMsg": "Voulez-vous vraiment supprimer la sessions ?",
+    "deleteSessionMsg": "Voulez-vous vraiment supprimer cette sessions ?",
     "delete": "Supprimer",
     "cancel": "Annuler",
 
@@ -29,6 +29,8 @@
     "ATTEMPTS": "Essais",
 
     "addClimb": "Ajouter une voie",
+    "deleteClimb": "Supprimer la voie",
+    "deleteClimbMsg": "Voulez-vous vraiment supprimer cette voie ?",
 
     "---------- AddClimb ----------": "",
     "name": "Nom de la voie",

@@ -7,7 +7,7 @@
 
     "addSession": "Add a session",
     "deleteSession": "Delete session",
-    "deleteSessionMsg": "Do you really want to delete the session?",
+    "deleteSessionMsg": "Do you really want to delete this session?",
     "delete": "Delete",
     "cancel": "Cancel",
 
@@ -29,6 +29,8 @@
     "ATTEMPTS": "Attempts",
 
     "addClimb": "Add a route",
+    "deleteClimb": "Delete climb",
+    "deleteClimbMsg": "Do you really want to delete this climb?",
 
     "---------- AddClimb ----------": "",
     "name": "Name of the route",

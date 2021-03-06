@@ -36,7 +36,7 @@ const Row = ({ item }) => {
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 2, flexDirection: 'row'}}>
                         <Text style={styles.mode}>{translate(item.mode)}</Text>
-                        {item.pitches && <Text style={styles.pitches}> - {item.pitches} pitches</Text>}
+                        {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
                     </View>
                     <View style={{flex: 1}}>
                         <Text style={styles.style}>{translate(item.style)}</Text>

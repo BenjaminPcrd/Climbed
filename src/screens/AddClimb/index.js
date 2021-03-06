@@ -12,6 +12,8 @@ import {
 
 import { Picker } from '@react-native-picker/picker'
 
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 import { translate } from '../../translations'
 
 import gradesTab from '../../assets/grades'
@@ -47,6 +49,36 @@ const AddClimb = ({ navigation, route }) => {
             { cancelable: true }
         )
         setIsMultiPitch(value)
+    }
+
+    const onSubmit = async () => {
+        const climbToAdd = {
+            ...(name.length > 0 && { name }),
+            type,
+            ...(type !== 'BOULDERING' && isMultiPitch && { pitches }),
+            ...(type !== 'BOULDERING' && { mode }),
+            grade: { grade, grading },
+            style,
+            index: route.params.session.climbs.length
+        }
+        
+        try {
+            const jsonSessions = await AsyncStorage.getItem('@sessions')
+            let newSessions
+            if (jsonSessions != null) {
+                const oldSessions = JSON.parse(jsonSessions)
+                newSessions = oldSessions
+                newSessions.find(s => s.id === route.params.session.id).climbs.push(climbToAdd)
+            } else {
+                const oldSessions = JSON.parse(jsonSessions)
+                newSessions = oldSessions
+            }
+            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
+            let newSession = newSessions.find(s => s.id === route.params.session.id)
+            navigation.navigate('Session', { session: newSession, title: `${newSession.location} - ${new Date(newSession.date).toLocaleDateString()}` })
+        } catch(e) {
+            console.error(e)
+        }
     }
 
     return (
@@ -129,7 +161,7 @@ const AddClimb = ({ navigation, route }) => {
             </View>
 
             <View style={styles.input}>
-                <Button title={translate('addClimb')} color='darkblue'/>
+                <Button title={translate('addClimb')} color='darkblue' onPress={onSubmit}/>
             </View>
         </View>
     )
