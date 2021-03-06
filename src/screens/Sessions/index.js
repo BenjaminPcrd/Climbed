@@ -1,32 +1,83 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import {
     View,
     FlatList,
     TouchableOpacity,
     RefreshControl,
-    Button
+    Button,
+    Alert
 } from 'react-native'
+
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Row from './row'
 
 import { translate } from '../../translations'
 
-var sessions = require('../../sessions.json')
-
 const Sessions = ({ navigation }) => {
-    const [refreshing, setRefreshing] = useState(false)
+    const [sessions, setSessions] = useState([])
+    const [refreshing, setRefreshing] = useState(true)
 
     const onRefresh = useCallback(() => {
         setRefreshing(true)
-        setTimeout(() => setRefreshing(false), 2000)
+        getSessions()
     }, [])
 
+    useEffect(() => {
+        getSessions()
+    }, [])
+
+    const getSessions = async () => {
+        try {
+            const jsonSessions = await AsyncStorage.getItem('@sessions')
+            if (jsonSessions != null) {
+                setSessions(JSON.parse(jsonSessions))
+            }
+            setRefreshing(false)
+        } catch(e) {
+            console.error(e)
+        }
+    }
+
+    const deleteSession = async (sessionToDelete) => {
+        try {
+            const jsonSessions = await AsyncStorage.getItem('@sessions')
+            let newSessions
+            if (jsonSessions != null) {
+                const oldSessions = JSON.parse(jsonSessions)
+                newSessions = oldSessions
+                newSessions.splice(oldSessions.findIndex(s => s.id === sessionToDelete.id), 1)
+            } else {
+                const oldSessions = JSON.parse(jsonSessions)
+                newSessions = oldSessions
+            }
+            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
+            onRefresh()
+        } catch(e) {
+            console.error(e)
+        }
+    }
+
     const renderItem = ({ item }) => {
+        const onSessionPress = () => {
+            navigation.navigate('Session', { session: item, title: `${item.location} - ${new Date(item.date).toLocaleDateString()}` })
+        }
+
+        const onSessionLongPress = () => {
+            Alert.alert(
+                translate('deleteSession'),
+                translate('deleteSessionMsg'),
+                [
+                    { text: translate('cancel') },
+                    { text: translate('delete'), onPress: () => deleteSession(item) }
+                ],
+                { cancelable: true }
+            )
+        }
+
         return (
-            <TouchableOpacity activeOpacity={0.4} onPress={() => {
-                navigation.navigate('Session', { session: item, title: `${item.location} - ${new Date(item.date).toLocaleDateString()}` })
-            }}>
+            <TouchableOpacity activeOpacity={0.4} onPress={onSessionPress} onLongPress={onSessionLongPress}>
                 <Row item={item}/>
             </TouchableOpacity>
         )

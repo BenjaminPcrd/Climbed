@@ -6,6 +6,10 @@
     "climbs": "voies",
 
     "addSession": "Ajouter une session",
+    "deleteSession": "Supprimer la session",
+    "deleteSessionMsg": "Voulez-vous vraiment supprimer la sessions ?",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
 
     "---------- AddSession ----------": "",
     "date": "Date",

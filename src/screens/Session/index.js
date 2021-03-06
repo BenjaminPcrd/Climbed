@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
     View,
@@ -12,7 +12,6 @@ import Row from './row'
 import { translate } from '../../translations'
 
 const Session = ({ navigation, route }) => {
-
     const renderItem = ({ item }) => {
         return (
             <TouchableOpacity activeOpacity={0.4}>

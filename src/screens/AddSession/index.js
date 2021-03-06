@@ -40,18 +40,16 @@ const AddSession = ({ navigation }) => {
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')
             let newSessions
-            if(jsonSessions != null) {
+            if (jsonSessions != null) {
                 const sessions = JSON.parse(jsonSessions)
                 newSessions = [sessionToAdd, ...sessions]
             } else {
                 newSessions = [sessionToAdd]
             }
-            //await AsyncStorage.removeItem('@sessions')
-            //console.log(newSessions)
             await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
             navigation.navigate('Session', { session: sessionToAdd, title: `${sessionToAdd.location} - ${new Date(sessionToAdd.date).toLocaleDateString()}` })
         } catch(e) {
-            console.log(e)
+            console.error(e)
         }
     }
 
