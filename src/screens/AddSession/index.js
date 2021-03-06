@@ -31,7 +31,7 @@ const AddSession = ({ navigation }) => {
     const onSubmit = async () => {
         const sessionToAdd = { 
             id: Math.random().toString(36).substr(2, 5),
-            date: date.toISOString().split('T')[0], 
+            date: date.toLocaleDateString(), 
             location, 
             type, 
             climbs: [] 
