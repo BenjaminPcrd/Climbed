@@ -14,7 +14,7 @@ import { Picker } from '@react-native-picker/picker'
 
 import { translate } from '../../translations'
 
-const CreateSession = () => {
+const AddSession = () => {
     const [date, setDate] = useState(new Date())
     const [location, setLocation] = useState('')
     const [type, setType] = useState('INDOOR')
@@ -29,7 +29,7 @@ const CreateSession = () => {
     return (
         <View>
             <View style={styles.input}>
-                <Text style={styles.label}>Date</Text>
+                <Text style={styles.label}>{translate('date')}</Text>
                 <TextInput value={date.toDateString()} onTouchStart={() => setShowDatePicker(true)} onTouchEnd={() => Keyboard.dismiss()} underlineColorAndroid='darkblue'/>
                 {showDatePicker && (
                     <DateTimePicker
@@ -40,11 +40,11 @@ const CreateSession = () => {
                 )}
             </View>
             <View style={styles.input}>
-                <Text style={styles.label}>Location</Text>
+                <Text style={styles.label}>{translate('location')}</Text>
                 <TextInput value={location} onChangeText={setLocation} underlineColorAndroid='darkblue'/>
             </View>
             <View style={styles.input}>
-                <Text style={styles.label}>Type</Text>
+                <Text style={styles.label}>{translate('type')}</Text>
                 <Picker selectedValue={type} onValueChange={setType} mode='dropdown'>
                     <Picker.Item label={translate('indoorSession')} value="INDOOR" />
                     <Picker.Item label={translate('outdoorSession')} value="OUTDOOR" />
@@ -66,4 +66,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CreateSession
+export default AddSession

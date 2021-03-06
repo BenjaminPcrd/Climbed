@@ -10,7 +10,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 // SessionStack Components
 import Sessions from './screens/Sessions'
 import Session from './screens/Session'
-import CreateSession from './screens/CreateSession'
+import AddSession from './screens/AddSession'
+import AddClimb from './screens/AddClimb'
 
 import Stats from './screens/Stats'
 
@@ -26,7 +27,8 @@ const App = () => {
             <Stack.Navigator screenOptions={options.stackScreen}>
                 <Stack.Screen name="Sessions" component={Sessions}/>
                 <Stack.Screen name="Session" component={Session} options={({ route }) => ({ title: route.params.title })}/>
-                <Stack.Screen name="CreateSession" component={CreateSession} options={{ title: translate('addSession') }}/>
+                <Stack.Screen name="AddSession" component={AddSession} options={{ title: translate('addSession') }}/>
+                <Stack.Screen name="AddClimb" component={AddClimb} options={{ title: translate('addClimb') }}/>
             </Stack.Navigator>
         )
     }

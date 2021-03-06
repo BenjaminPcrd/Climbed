@@ -26,7 +26,7 @@ const Session = ({ navigation, route }) => {
             data={route.params.session.climbs}
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
-            ListFooterComponent={<Button title={translate('addClimb')} color='darkblue'/>}
+            ListFooterComponent={<Button title={translate('addClimb')} color='darkblue' onPress={() => navigation.navigate('AddClimb')}/>}
             ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'grey'}}/>}
         />
     )

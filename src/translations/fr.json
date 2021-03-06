@@ -7,6 +7,11 @@
 
     "addSession": "Ajouter une session",
 
+    "---------- AddSession ----------": "",
+    "date": "Date",
+    "location": "Lieu",
+    "type": "Type",
+
     "---------- Session ----------": "",
     "LEAD": "En tête",
     "TOP_ROPE": "En moulinette",
@@ -19,7 +24,18 @@
     "REPEAT": "Répétition",
     "ATTEMPTS": "Essais",
 
-    "addClimb": "Ajouter une voie"
+    "addClimb": "Ajouter une voie",
 
+    "---------- AddClimb ----------": "",
+    "name": "Nom de la voie",
+    "mode": "Mode",
+    "grade": "Cotation",
+    "grading": "Système",
+    "style": "Style",
 
+    "SPORT_CLIMBING": "Escalade sportive",
+    "TRAD_CLIMBING": "Escalade traditionnelle",
+    "ICE_CLIMBING": "Escalade de glace",
+    "AID_CLIMBING": "Escalade artificielle",
+    "BOULDERING": "Escalade de bloc"
 }

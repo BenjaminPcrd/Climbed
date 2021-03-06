@@ -7,6 +7,11 @@
 
     "addSession": "Add a session",
 
+    "---------- AddSession ----------": "",
+    "date": "Date",
+    "location": "Location",
+    "type": "Type",
+
     "---------- Session ----------": "",
     "LEAD": "Lead",
     "TOP_ROPE": "Top rope",
@@ -19,5 +24,18 @@
     "REPEAT": "Repeat",
     "ATTEMPTS": "Attempts",
 
-    "addClimb": "Add a route"
+    "addClimb": "Add a route",
+
+    "---------- AddClimb ----------": "",
+    "name": "Name of the route",
+    "mode": "Mode",
+    "grade": "Grade",
+    "grading": "Grading",
+    "style": "Style",
+    
+    "SPORT_CLIMBING": "Sport climbing",
+    "TRAD_CLIMBING": "Trad climbing",
+    "ICE_CLIMBING": "Ice climbing",
+    "AID_CLIMBING": "Aid climbing",
+    "BOULDERING": "Bouldering"
 }
