@@ -14,7 +14,7 @@ import { translate } from '../../translations'
 
 import gradesTab from '../../assets/grades'
 
-const AddClimb = () => {
+const AddClimb = ({ navigation, route }) => {
     const [name, setName] = useState('')
     const [type, setType] = useState('SPORT_CLIMBING')
     const [mode, setMode] = useState('LEAD')
@@ -33,20 +33,24 @@ const AddClimb = () => {
         setGrading(value)
     }
 
+    console.log(route.params.session.type)
+
     return (
         <View>
-            <View style={styles.input}>
-                <Text style={styles.label}>{translate('name')}</Text>
-                <TextInput value={name} onChangeText={setName} underlineColorAndroid='darkblue'/>
-            </View>
-
+            {route.params.session.type === 'OUTDOOR' && (
+                <View style={styles.input}>
+                    <Text style={styles.label}>{translate('name')}</Text>
+                    <TextInput value={name} onChangeText={setName} underlineColorAndroid='darkblue'/>
+                </View>
+            )}
+            
             <View style={styles.input}>
                 <Text style={styles.label}>{translate('type')}</Text>
                 <Picker selectedValue={type} onValueChange={onTypeChange} mode='dropdown'>
                     <Picker.Item label={translate('SPORT_CLIMBING')} value="SPORT_CLIMBING" />
-                    <Picker.Item label={translate('TRAD_CLIMBING')} value="TRAD_CLIMBING" />
-                    <Picker.Item label={translate('ICE_CLIMBING')} value="ICE_CLIMBING" />
-                    <Picker.Item label={translate('AID_CLIMBING')} value="AID_CLIMBING" />
+                    {route.params.session.type === 'OUTDOOR' && <Picker.Item label={translate('TRAD_CLIMBING')} value="TRAD_CLIMBING" />}
+                    {route.params.session.type === 'OUTDOOR' && <Picker.Item label={translate('ICE_CLIMBING')} value="ICE_CLIMBING" />}
+                    {route.params.session.type === 'OUTDOOR' && <Picker.Item label={translate('AID_CLIMBING')} value="AID_CLIMBING" />}
                     <Picker.Item label={translate('BOULDERING')} value="BOULDERING" />
                 </Picker>
             </View>
@@ -63,7 +67,7 @@ const AddClimb = () => {
             )}
 
             <View style={[styles.input, {flexDirection: 'row'}]}>
-                <View style={{flex: 2}}>
+                <View style={{flex: 1}}>
                     <Text style={styles.label}>{translate('grade')}</Text>
                     <Picker selectedValue={grade} onValueChange={setGrade} mode='dropdown'>
                         {

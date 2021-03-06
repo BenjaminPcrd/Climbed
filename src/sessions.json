@@ -4,11 +4,11 @@
         "location": "B'up",
         "type": "INDOOR",
         "climbs": [
-            { "index": "0", "name": "", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "name": "", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": "2", "name": "", "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
-            { "index": "3", "name": "", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
-            { "index": "4", "name": "", "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
+            { "index": "0", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "1", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": "2", "type": "TRAD_CLIMBING", "name": "", "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
+            { "index": "3", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
+            { "index": "4", "type": "BOULDERING", "name": "", "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
         ]
     },
     {
@@ -16,9 +16,9 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": "0", "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "2", "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            { "index": "0", "type": "SPORT_CLIMBING", "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "1", "type": "SPORT_CLIMBING", "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "2", "type": "SPORT_CLIMBING", "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
         ]
     },
     {
@@ -26,8 +26,8 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": "0", "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": "1", "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
+            { "index": "0", "type": "SPORT_CLIMBING", "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": "1", "type": "SPORT_CLIMBING", "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
         ]
     },
     {
@@ -35,10 +35,10 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": "0", "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "2", "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "3", "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            { "index": "0", "type": "SPORT_CLIMBING", "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "1", "type": "SPORT_CLIMBING", "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "2", "type": "SPORT_CLIMBING", "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "3", "type": "SPORT_CLIMBING", "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
         ]
     }
 ]
