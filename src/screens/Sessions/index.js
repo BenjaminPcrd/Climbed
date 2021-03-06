@@ -28,6 +28,13 @@ const Sessions = ({ navigation }) => {
         getSessions()
     }, [])
 
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getSessions()
+        })
+        return unsubscribe
+    }, [navigation])
+
     const getSessions = async () => {
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')

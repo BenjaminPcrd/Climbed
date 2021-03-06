@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
     View,
@@ -15,9 +15,6 @@ import Row from './row'
 import { translate } from '../../translations'
 
 const Session = ({ navigation, route }) => {
-
-    const [session, setSession] = useState(route.params.session)
-
     const deleteClimb = async (climbToDelete) => {
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')
@@ -33,7 +30,7 @@ const Session = ({ navigation, route }) => {
             }
             await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
             let newSession = newSessions.find(s => s.id === route.params.session.id)
-            setSession(newSession)
+            navigation.setParams({ session: newSession })
         } catch(e) {
             console.error(e)
         }
@@ -61,7 +58,7 @@ const Session = ({ navigation, route }) => {
 
     return (
         <FlatList 
-            data={(session.climbs).sort((a, b) => b.index - a.index)}
+            data={(route.params.session.climbs).sort((a, b) => b.index - a.index)}
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
             ListFooterComponent={<Button title={translate('addClimb')} color='darkblue' onPress={() => navigation.navigate('AddClimb', { session: route.params.session })}/>}

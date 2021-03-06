@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import {
     View,
@@ -61,7 +61,7 @@ const AddClimb = ({ navigation, route }) => {
             style,
             index: route.params.session.climbs.length
         }
-        
+
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')
             let newSessions
