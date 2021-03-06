@@ -1,7 +1,21 @@
 {
+    "---------- Sessions ----------": "",
     "sessions": "Sessions",
     "addSession": "Add a session",
     "indoorSession": "Indoor session",
     "outdoorSession": "Outdoor session",
-    "climbs": "climbs"
+    "climbs": "climbs",
+
+    "---------- Session ----------": "",
+    "LEAD": "Lead",
+    "TOP_ROPE": "Top rope",
+    "FOLLOW": "Follow",
+
+    "ONSIGHT": "Onsight",
+    "FLASH": "Flash",
+    "REDPOINT": "Redpoint",
+    "REPEAT": "Repeat",
+    "ATTEMPTS": "Attempts",
+
+    "addClimb": "Add a route"
 }

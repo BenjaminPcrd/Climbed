@@ -1,7 +1,21 @@
 {
+    "---------- Sessions ----------": "",
     "sessions": "Sessions",
     "addSession": "Ajouter une session",
     "indoorSession": "Session en salle",
     "outdoorSession": "Session en falaise",
-    "climbs": "voies"
+    "climbs": "voies",
+
+    "---------- Session ----------": "",
+    "LEAD": "En tête",
+    "TOP_ROPE": "En moulinette",
+    "FOLLOW": "En Second",
+
+    "ONSIGHT": "A vue",
+    "FLASH": "Flash",
+    "REDPOINT": "Après travail",
+    "REPEAT": "Répétition",
+    "ATTEMPTS": "Essais",
+
+    "addClimb": "Ajouter une voie"
 }

@@ -14,7 +14,7 @@ import { translate } from '../../translations'
 
 var sessions = require('../../sessions.json')
 
-const Sessions = () => {
+const Sessions = ({ navigation }) => {
     const [refreshing, setRefreshing] = useState(false)
 
     const onRefresh = useCallback(() => {
@@ -22,11 +22,21 @@ const Sessions = () => {
         setTimeout(() => setRefreshing(false), 2000)
     }, [])
 
+    const renderItem = ({ item }) => {
+        return (
+            <TouchableOpacity activeOpacity={0.4} onPress={() => {
+                navigation.navigate('Session', { session: item, title: `${item.location} - ${new Date(item.date).toLocaleDateString()}`  })
+            }}>
+                <Row item={item}/>
+            </TouchableOpacity>
+        )
+    }
+
     return (
         <FlatList 
             data={sessions}
             keyExtractor={(item, index) => item + index}
-            renderItem={({item}) => <TouchableOpacity><Row item={item}/></TouchableOpacity>}
+            renderItem={renderItem}
             ListFooterComponent={<Button title={translate('addSession')} color='darkblue'/>}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
             ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'grey'}}/>}
