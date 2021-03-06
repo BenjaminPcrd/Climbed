@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 
 import {
+    View,
     FlatList,
     TouchableOpacity,
     RefreshControl,
@@ -28,6 +29,7 @@ const Sessions = () => {
             renderItem={({item}) => <TouchableOpacity><Row item={item}/></TouchableOpacity>}
             ListFooterComponent={<Button title={translate('addSession')} color='darkblue'/>}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
+            ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'grey'}}/>}
         />
     )
 }
