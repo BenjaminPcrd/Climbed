@@ -34,11 +34,11 @@ const Sessions = ({ navigation }) => {
 
     return (
         <FlatList 
-            data={sessions}
+            data={sessions.sort((a, b) => new Date(b.date) - new Date(a.date))}
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
             ListFooterComponent={<Button title={translate('addSession')} color='darkblue'/>}
-            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['darkblue']}/>}
             ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'grey'}}/>}
         />
     )

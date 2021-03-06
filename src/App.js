@@ -8,7 +8,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 // Screens
 import Sessions from './screens/Sessions'
 import Session from './screens/Session'
-import Routes from './screens/Routes'
+import Stats from './screens/Stats'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -17,14 +19,7 @@ const App = () => {
 
     const SessionsStack = () => {
         return (
-            <Stack.Navigator 
-                screenOptions={{
-                    headerStyle: {
-                        backgroundColor: 'darkblue',
-                    },
-                    headerTintColor: 'white'
-                }}
-            >
+            <Stack.Navigator screenOptions={options.stackScreen}>
                 <Stack.Screen name="Sessions" component={Sessions}/>
                 <Stack.Screen name="Session" component={Session} options={({ route }) => ({ title: route.params.title })}/>
             </Stack.Navigator>
@@ -33,12 +28,42 @@ const App = () => {
 
     return (
         <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="SessionsStack" component={SessionsStack} />
-                <Tab.Screen name="Routes" component={Routes} />
+            <Tab.Navigator tabBarOptions={options.tabBar} screenOptions={options.tabScreen}>
+                <Tab.Screen name="SessionsStack" component={SessionsStack} options={{title: 'Sessions'}}/>
+                <Tab.Screen name="Stats" component={Stats} />
              </Tab.Navigator>
         </NavigationContainer>
     )
 }
+
+const options = {
+    stackScreen: {
+        headerStyle: {
+            backgroundColor: 'darkblue',
+        },
+        headerTintColor: 'white'
+    },
+
+    tabScreen: ({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+            let iconName
+            switch(route.name) {
+                case 'SessionsStack': iconName = 'list-circle-outline'; break
+                case 'Stats': iconName = 'stats-chart'; break
+            }
+            return <Icon name={iconName} size={size} color={color} />
+        }
+    }),
+
+    tabBar: {
+        activeBackgroundColor: 'darkblue',
+        activeTintColor: 'white',
+        inactiveBackgroundColor: 'white',
+        inactiveTintColor: 'darkblue',
+        labelPosition: 'beside-icon'
+    }
+    
+}
+
 
 export default App

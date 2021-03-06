@@ -6,7 +6,7 @@ const translations = {
 }
 
 var languageTag = findBestAvailableLanguage(Object.keys(translations)).languageTag
-languageTag = 'en'
+//languageTag = 'en'
 
 const translate = key => {
 	return translations[languageTag]()[key]

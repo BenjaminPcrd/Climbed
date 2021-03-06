@@ -4,23 +4,11 @@
         "location": "B'up",
         "type": "INDOOR",
         "climbs": [
-            { "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
-            { "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
-            { "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
-        ]
-    },
-    {
-        "date": "2021-03-04",
-        "location": "Ceoul",
-        "type": "OUTDOOR",
-        "climbs": [
-            { "name": "nom 1", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "pitches": "2" },
-            { "name": "nom 2", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "name": "nom 3", "grade": { "grade": "7b", "grading": "FR" }, "mode": "FOLLOW", "style": "REDPOINT", "pitches": "4" },
-            { "name": "nom 4", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
-            { "name": "nom 5", "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
+            { "index": "0", "name": "", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "1", "name": "", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": "2", "name": "", "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
+            { "index": "3", "name": "", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
+            { "index": "4", "name": "", "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
         ]
     },
     {
@@ -28,9 +16,9 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            { "index": "0", "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "1", "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "2", "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
         ]
     },
     {
@@ -38,8 +26,8 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
+            { "index": "0", "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": "1", "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
         ]
     },
     {
@@ -47,10 +35,10 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            { "index": "0", "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "1", "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "2", "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": "3", "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
         ]
     }
 ]

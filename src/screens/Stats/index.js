@@ -5,12 +5,12 @@ import {
     Text
 } from 'react-native'
 
-const Routes = () => {
+const Stats = () => {
     return (
         <View>
-            <Text>Routes</Text>
+            <Text>Stats</Text>
         </View>
     )
 }
 
-export default Routes
+export default Stats
