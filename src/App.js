@@ -5,12 +5,16 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-// Screens
+import Icon from 'react-native-vector-icons/Ionicons'
+
+// SessionStack Components
 import Sessions from './screens/Sessions'
 import Session from './screens/Session'
+import CreateSession from './screens/CreateSession'
+
 import Stats from './screens/Stats'
 
-import Icon from 'react-native-vector-icons/Ionicons'
+import { translate } from './translations'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -22,6 +26,7 @@ const App = () => {
             <Stack.Navigator screenOptions={options.stackScreen}>
                 <Stack.Screen name="Sessions" component={Sessions}/>
                 <Stack.Screen name="Session" component={Session} options={({ route }) => ({ title: route.params.title })}/>
+                <Stack.Screen name="CreateSession" component={CreateSession} options={{ title: translate('addSession') }}/>
             </Stack.Navigator>
         )
     }
@@ -29,7 +34,7 @@ const App = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator tabBarOptions={options.tabBar} screenOptions={options.tabScreen}>
-                <Tab.Screen name="SessionsStack" component={SessionsStack} options={{title: 'Sessions'}}/>
+                <Tab.Screen name="SessionsStack" component={SessionsStack} options={{ title: translate('sessions') }}/>
                 <Tab.Screen name="Stats" component={Stats} />
              </Tab.Navigator>
         </NavigationContainer>
@@ -60,7 +65,8 @@ const options = {
         activeTintColor: 'white',
         inactiveBackgroundColor: 'white',
         inactiveTintColor: 'darkblue',
-        labelPosition: 'beside-icon'
+        labelPosition: 'beside-icon',
+        keyboardHidesTabBar: true
     }
     
 }

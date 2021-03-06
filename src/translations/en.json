@@ -1,10 +1,11 @@
 {
     "---------- Sessions ----------": "",
     "sessions": "Sessions",
-    "addSession": "Add a session",
     "indoorSession": "Indoor session",
     "outdoorSession": "Outdoor session",
     "climbs": "climbs",
+
+    "addSession": "Add a session",
 
     "---------- Session ----------": "",
     "LEAD": "Lead",
