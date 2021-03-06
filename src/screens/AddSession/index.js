@@ -12,9 +12,11 @@ import {
 import DateTimePicker from '@react-native-community/datetimepicker'
 import { Picker } from '@react-native-picker/picker'
 
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 import { translate } from '../../translations'
 
-const AddSession = () => {
+const AddSession = ({ navigation }) => {
     const [date, setDate] = useState(new Date())
     const [location, setLocation] = useState('')
     const [type, setType] = useState('INDOOR')
@@ -24,6 +26,33 @@ const AddSession = () => {
         const currentDate = selectedDate || date
         setShowDatePicker(Platform.OS === 'ios')
         setDate(currentDate)
+    }
+
+    const onSubmit = async () => {
+        const sessionToAdd = { 
+            id: Math.random().toString(36).substr(2, 5),
+            date: date.toISOString().split('T')[0], 
+            location, 
+            type, 
+            climbs: [] 
+        }
+
+        try {
+            const jsonSessions = await AsyncStorage.getItem('@sessions')
+            let newSessions
+            if(jsonSessions != null) {
+                const sessions = JSON.parse(jsonSessions)
+                newSessions = [sessionToAdd, ...sessions]
+            } else {
+                newSessions = [sessionToAdd]
+            }
+            //await AsyncStorage.removeItem('@sessions')
+            //console.log(newSessions)
+            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
+            navigation.navigate('Session', { session: sessionToAdd, title: `${sessionToAdd.location} - ${new Date(sessionToAdd.date).toLocaleDateString()}` })
+        } catch(e) {
+            console.log(e)
+        }
     }
 
     return (
@@ -51,7 +80,7 @@ const AddSession = () => {
                 </Picker>
             </View>
             <View style={styles.input}>
-                <Button title={translate('addSession')} color='darkblue'/>
+                <Button title={translate('addSession')} color='darkblue' onPress={onSubmit}/>
             </View>
         </View>
     )

@@ -25,7 +25,7 @@ const Sessions = ({ navigation }) => {
     const renderItem = ({ item }) => {
         return (
             <TouchableOpacity activeOpacity={0.4} onPress={() => {
-                navigation.navigate('Session', { session: item, title: `${item.location} - ${new Date(item.date).toLocaleDateString()}`  })
+                navigation.navigate('Session', { session: item, title: `${item.location} - ${new Date(item.date).toLocaleDateString()}` })
             }}>
                 <Row item={item}/>
             </TouchableOpacity>
