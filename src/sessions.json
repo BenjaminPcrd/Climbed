@@ -5,10 +5,11 @@
         "type": "INDOOR",
         "climbs": [
             { "index": "0", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": "2", "type": "TRAD_CLIMBING", "name": "", "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
-            { "index": "3", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
-            { "index": "4", "type": "BOULDERING", "name": "", "grade": { "grade": "V5", "grading": "V" }, "mode": "BOULDER", "style": "ATTEMPTS" }
+            { "index": "1", "type": "SPORT_CLIMBING", "name": "jhjmk", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": "2", "type": "TRAD_CLIMBING", "name": "ewrwedsf", "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
+            { "index": "3", "type": "AID_CLIMBING", "name": "mjhhhju", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
+            { "index": "4", "type": "BOULDERING", "name": "", "grade": { "grade": "V5", "grading": "V" }, "mode": "", "style": "ATTEMPTS" },
+            { "index": "5", "type": "ICE_CLIMBING", "name": "fdsffs", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" }
         ]
     },
     {
