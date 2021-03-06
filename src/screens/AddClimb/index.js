@@ -5,6 +5,8 @@ import {
     Text,
     TextInput,
     Button,
+    Switch,
+    Alert,
     StyleSheet
 } from 'react-native'
 
@@ -14,9 +16,13 @@ import { translate } from '../../translations'
 
 import gradesTab from '../../assets/grades'
 
+const pitchesArray = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+
 const AddClimb = ({ navigation, route }) => {
     const [name, setName] = useState('')
     const [type, setType] = useState('SPORT_CLIMBING')
+    const [isMultiPitch, setIsMultiPitch] = useState(false)
+    const [pitches, setPitches] = useState('2')
     const [mode, setMode] = useState('LEAD')
     const [grade, setGrade] = useState('1')
     const [grading, setGrading] = useState('FR')
@@ -33,7 +39,15 @@ const AddClimb = ({ navigation, route }) => {
         setGrading(value)
     }
 
-    console.log(route.params.session.type)
+    const onIsMultiPitchChange = (value) => {
+        value && Alert.alert(
+            translate('multiPitch'),
+            translate('multiPitchAlertMsg'),
+            [{ text: 'ok' }],
+            { cancelable: true }
+        )
+        setIsMultiPitch(value)
+    }
 
     return (
         <View>
@@ -54,6 +68,24 @@ const AddClimb = ({ navigation, route }) => {
                     <Picker.Item label={translate('BOULDERING')} value="BOULDERING" />
                 </Picker>
             </View>
+
+            {route.params.session.type === 'OUTDOOR' && type !== 'BOULDERING' && (
+                <View style={styles.input}>
+                    <Text style={styles.label}>{translate('multiPitch')}</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Picker selectedValue={pitches} onValueChange={setPitches} mode='dropdown' style={{flex: 1}} enabled={isMultiPitch}>
+                            {pitchesArray.map(item => <Picker.Item label={`${item} ${translate('pitches')}`} value={item} key={item} color={isMultiPitch ? 'black' : 'lightgrey'}/>)}
+                        </Picker>
+                        <Switch
+                            trackColor={{ false: 'grey', true: 'darkblue' }}
+                            thumbColor={'white'}
+                            onValueChange={onIsMultiPitchChange}
+                            value={isMultiPitch}
+                        />
+                    </View>
+                </View>
+            )}
+            
 
             {type !== 'BOULDERING' && (
                 <View style={styles.input}>

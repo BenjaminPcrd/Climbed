@@ -4,12 +4,22 @@
         "location": "B'up",
         "type": "INDOOR",
         "climbs": [
-            { "index": "0", "type": "SPORT_CLIMBING", "name": "", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "type": "SPORT_CLIMBING", "name": "jhjmk", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": "2", "type": "TRAD_CLIMBING", "name": "ewrwedsf", "grade": { "grade": "7b", "grading": "FR" }, "mode": "LEAD", "style": "REDPOINT" },
-            { "index": "3", "type": "AID_CLIMBING", "name": "mjhhhju", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" },
-            { "index": "4", "type": "BOULDERING", "name": "", "grade": { "grade": "V5", "grading": "V" }, "mode": "", "style": "ATTEMPTS" },
-            { "index": "5", "type": "ICE_CLIMBING", "name": "fdsffs", "grade": { "grade": "6b+", "grading": "FR" }, "mode": "LEAD", "style": "REPEAT" }
+            { "index": 0, "type": "SPORT_CLIMBING", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": 1, "type": "SPORT_CLIMBING", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": 2, "type": "BOULDERING", "grade": { "grade": "V5", "grading": "V" }, "style": "REDPOINT" },
+            { "index": 3, "type": "BOULDERING", "grade": { "grade": "V7", "grading": "V" }, "style": "ATTEMPTS" }
+        ]
+    },
+    {
+        "date": "2021-03-07",
+        "location": "loin d'ici",
+        "type": "OUTDOOR",
+        "climbs": [
+            { "index": 0, "type": "SPORT_CLIMBING", "name": "Super voie", "grade": { "grade": "6c+", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "pitches": "2" },
+            { "index": 1, "type": "TRAD_CLIMBING", "name": " aie aie aie", "grade": { "grade": "E3", "grading": "UK" }, "mode": "FOLLOW", "style": "FLASH", "pitches": "5" },
+            { "index": 2, "type": "AID_CLIMBING", "name": "Bonjour", "grade": { "grade": "A3", "grading": "original" }, "mode": "TOP_ROPE", "style": "REDPOINT" },
+            { "index": 3, "type": "ICE_CLIMBING", "name": "C'est froid", "grade": { "grade": "WI5+", "grading": "WI" }, "mode": "TOP_ROPE", "style": "ATTEMPTS" },
+            { "index": 4, "type": "BOULDERING", "name": "Pechu", "grade": { "grade": "V4/5", "grading": "V" }, "style": "REPEAT" }
         ]
     },
     {
@@ -17,9 +27,9 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": "0", "type": "SPORT_CLIMBING", "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "type": "SPORT_CLIMBING", "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "2", "type": "SPORT_CLIMBING", "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            { "index": 0, "type": "SPORT_CLIMBING", "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": 1, "type": "SPORT_CLIMBING", "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": 2, "type": "SPORT_CLIMBING", "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
         ]
     },
     {
@@ -27,8 +37,8 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": "0", "type": "SPORT_CLIMBING", "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": "1", "type": "SPORT_CLIMBING", "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
+            { "index": 0, "type": "SPORT_CLIMBING", "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
+            { "index": 1, "type": "SPORT_CLIMBING", "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
         ]
     },
     {
@@ -36,10 +46,10 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": "0", "type": "SPORT_CLIMBING", "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "1", "type": "SPORT_CLIMBING", "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "2", "type": "SPORT_CLIMBING", "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": "3", "type": "SPORT_CLIMBING", "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            { "index": 0, "type": "SPORT_CLIMBING", "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": 1, "type": "SPORT_CLIMBING", "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": 2, "type": "SPORT_CLIMBING", "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
+            { "index": 3, "type": "SPORT_CLIMBING", "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
         ]
     }
 ]

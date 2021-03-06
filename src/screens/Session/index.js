@@ -23,7 +23,7 @@ const Session = ({ navigation, route }) => {
 
     return (
         <FlatList 
-            data={route.params.session.climbs}
+            data={(route.params.session.climbs).sort((a, b) => b.index - a.index)}
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
             ListFooterComponent={<Button title={translate('addClimb')} color='darkblue' onPress={() => navigation.navigate('AddClimb', { session: route.params.session })}/>}

@@ -34,8 +34,9 @@ const Row = ({ item }) => {
                     </View>
                 </View>
                 <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 2}}>
+                    <View style={{flex: 2, flexDirection: 'row'}}>
                         <Text style={styles.mode}>{translate(item.mode)}</Text>
+                        {item.pitches && <Text style={styles.pitches}> - {item.pitches} pitches</Text>}
                     </View>
                     <View style={{flex: 1}}>
                         <Text style={styles.style}>{translate(item.style)}</Text>
@@ -62,6 +63,9 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     mode: {
+        color: 'grey'
+    },
+    pitches: {
         color: 'grey'
     },
     style: {
