@@ -17,27 +17,31 @@ import { translate } from '../../translations'
 const Row = ({ item }) => {
     return (
         <View style={styles.row}>
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, justifyContent: 'center'}}>
                 {item.type === 'SPORT_CLIMBING' && <SportClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'TRAD_CLIMBING' && <TradClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'ICE_CLIMBING' && <IceClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'AID_CLIMBING' && <AidClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'BOULDERING' && <BoulderingIcon width={50} height={50} fill={"black"}/>}
             </View>
+
             <View style={{flex: 5}}>
                 <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 2}}>
+                    <View style={{flex: 3}}>
                         <Text style={styles.name}>{item.name}</Text>
                     </View>
-                    <View style={{flex: 1}}>
+
+                    <View style={{flex: 1, justifyContent: 'center'}}>
                         <Text style={styles.grade}>{item.grade.grade}</Text>
                     </View>
                 </View>
+
                 <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 2, flexDirection: 'row'}}>
+                    <View style={{flex: 3, flexDirection: 'row'}}>
                         <Text style={styles.mode}>{translate(item.mode)}</Text>
                         {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
                     </View>
+
                     <View style={{flex: 1}}>
                         <Text style={styles.style}>{translate(item.style)}</Text>
                     </View>
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
     grade: {
         color: 'darkblue',
         fontSize: 22,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     mode: {
         color: 'grey'

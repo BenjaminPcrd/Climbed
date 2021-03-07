@@ -97,7 +97,7 @@ const Sessions = ({ navigation }) => {
             renderItem={renderItem}
             ListFooterComponent={<Button title={translate('addSession')} color='darkblue' onPress={() => navigation.navigate('AddSession')}/>}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['darkblue']}/>}
-            ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'grey'}}/>}
+            ItemSeparatorComponent={() => <View style={{height: 3, backgroundColor: 'grey'}}/>}
         />
     )
 }

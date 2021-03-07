@@ -70,7 +70,7 @@ const Session = ({ navigation, route }) => {
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
             ListFooterComponent={<Button title={translate('addClimb')} color='darkblue' onPress={() => navigation.navigate('AddClimb', { session: route.params.session })}/>}
-            ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'grey'}}/>}
+            ItemSeparatorComponent={() => <View style={{height: 3, backgroundColor: 'grey'}}/>}
         />
     )
 }
