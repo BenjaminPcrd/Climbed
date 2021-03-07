@@ -16,8 +16,6 @@ import Row from './row'
 
 import { translate } from '../../translations'
 
-//navigation.reset({ index: 0, routes: [{ name: 'Sessions' }]})
-
 const Session = ({ navigation, route }) => {
     useEffect(() => {
         navigation.setOptions({
