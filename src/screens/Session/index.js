@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
     View,
@@ -8,13 +8,23 @@ import {
     Alert
 } from 'react-native'
 
+import { HeaderBackButton } from '@react-navigation/stack'
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Row from './row'
 
 import { translate } from '../../translations'
 
+//navigation.reset({ index: 0, routes: [{ name: 'Sessions' }]})
+
 const Session = ({ navigation, route }) => {
+    useEffect(() => {
+        navigation.setOptions({
+            headerLeft: () => <HeaderBackButton tintColor='white' onPress={() => navigation.navigate('Sessions')} />
+        })
+    }, [])
+
     const deleteClimb = async (climbToDelete) => {
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')
