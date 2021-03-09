@@ -24,7 +24,7 @@ const AddSession = ({ navigation }) => {
     const [type, setType] = useState('INDOOR')
 
     const [showDatePicker, setShowDatePicker] = useState(false)
-    const onDateChange = (event, selectedDate) => {
+    const onDateChange = (selectedDate) => {
         const currentDate = selectedDate || date
         setShowDatePicker(Platform.OS === 'ios')
         setDate(currentDate)
