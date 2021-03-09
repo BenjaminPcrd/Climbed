@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 
 import {
     View,
     Text,
     TextInput,
-    Button,
     StyleSheet,
     Keyboard
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
+import { HeaderBackButton } from '@react-navigation/stack'
 
 import DateTimePicker from '@react-native-community/datetimepicker'
 import { Picker } from '@react-native-picker/picker'
@@ -27,6 +29,21 @@ const AddSession = ({ navigation }) => {
         setShowDatePicker(Platform.OS === 'ios')
         setDate(currentDate)
     }
+
+    const [isSubmitPressed, setIsSubmitPressed] = useState(false)
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerBackImage: ({ tintColor }) => <Icon name='close-outline' color={tintColor} size={27}/>,
+            headerRight: ({ tintColor }) => <HeaderBackButton backImage={() => <Icon name='checkmark-outline' color={tintColor} size={27}/>} onPress={() => setIsSubmitPressed(true)}/> 
+        })
+    }, [navigation])
+
+    useEffect(() => {
+        if(isSubmitPressed) {
+            onSubmit()
+        }
+    }, [isSubmitPressed])
 
     const onSubmit = async () => {
         const sessionToAdd = { 
@@ -76,9 +93,6 @@ const AddSession = ({ navigation }) => {
                     <Picker.Item label={translate('indoorSession')} value="INDOOR" />
                     <Picker.Item label={translate('outdoorSession')} value="OUTDOOR" />
                 </Picker>
-            </View>
-            <View style={styles.input}>
-                <Button title={translate('addSession')} color='darkblue' onPress={onSubmit}/>
             </View>
         </View>
     )
