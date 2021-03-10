@@ -23,7 +23,7 @@ const SessionsStack = () => {
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen name="Sessions" component={Sessions}/>
             <Stack.Screen name="Session" component={Session} options={({ route }) => ({ title: route.params.title })}/>
-            <Stack.Screen name="AddSession" component={AddSession} options={{ title: translate('addSession') }}/>
+            <Stack.Screen name="AddSession" component={AddSession} options={({ route }) => ({ title: route.params ? translate('editSession') : translate('addSession') })}/>
             <Stack.Screen name="AddClimb" component={AddClimb} options={{ title: translate('addClimb') }}/>
         </Stack.Navigator>
     )

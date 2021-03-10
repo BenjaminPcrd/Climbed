@@ -47,6 +47,10 @@ const Sessions = ({ navigation }) => {
         }
     }
 
+    const editSession = (sessionToEdit) => {
+        navigation.navigate('AddSession', { sessionToEdit })
+    }
+
     const deleteSession = async (sessionToDelete) => {
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')
@@ -73,11 +77,23 @@ const Sessions = ({ navigation }) => {
 
         const onSessionLongPress = () => {
             Alert.alert(
-                translate('deleteSession'),
-                translate('deleteSessionMsg'),
+                translate('editSession'),
+                translate('editSessionMsg'),
                 [
                     { text: translate('cancel') },
-                    { text: translate('delete'), onPress: () => deleteSession(item) }
+                    { text: translate('edit'), onPress: () => editSession(item) },
+                    { 
+                        text: translate('delete'),
+                        onPress: () => Alert.alert(
+                            translate('deleteSession'),
+                            translate('deleteSessionMsg'),
+                            [
+                                { text: translate('cancel') },
+                                { text: translate('delete'), onPress: () => deleteSession(item) }
+                            ],
+                            { cancelable: true }
+                        ) 
+                    }
                 ],
                 { cancelable: true }
             )

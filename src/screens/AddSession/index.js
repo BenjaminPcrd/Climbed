@@ -18,13 +18,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { translate } from '../../translations'
 
-const AddSession = ({ navigation }) => {
+const AddSession = ({ navigation, route }) => {
     const [date, setDate] = useState(new Date())
     const [location, setLocation] = useState('')
     const [type, setType] = useState('INDOOR')
 
     const [showDatePicker, setShowDatePicker] = useState(false)
-    const onDateChange = (selectedDate) => {
+    const onDateChange = (event, selectedDate) => {
         const currentDate = selectedDate || date
         setShowDatePicker(Platform.OS === 'ios')
         setDate(currentDate)
@@ -35,13 +35,21 @@ const AddSession = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerBackImage: ({ tintColor }) => <Icon name='close-outline' color={tintColor} size={27}/>,
-            headerRight: ({ tintColor }) => <HeaderBackButton backImage={() => <Icon name='checkmark-outline' color={tintColor} size={27}/>} onPress={() => setIsSubmitPressed(true)}/> 
+            headerRight: ({ tintColor }) => <HeaderBackButton backImage={() => <Icon name='checkmark-outline' color={tintColor} size={27}/>} onPress={() => setIsSubmitPressed(true)}/>
         })
     }, [navigation])
 
     useEffect(() => {
+        if(route.params) {
+            setDate(new Date(route.params.sessionToEdit.date))
+            setLocation(route.params.sessionToEdit.location)
+            setType(route.params.sessionToEdit.type)
+        }
+    }, [])
+
+    useEffect(() => {
         if(isSubmitPressed) {
-            onSubmit()
+            route.params ? onEditSubmit() : onSubmit()
         }
     }, [isSubmitPressed])
 
@@ -65,6 +73,33 @@ const AddSession = ({ navigation }) => {
             }
             await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
             navigation.navigate('Session', { session: sessionToAdd, title: `${sessionToAdd.location} - ${new Date(sessionToAdd.date).toLocaleDateString()}` })
+        } catch(e) {
+            console.error(e)
+        }
+    }
+
+    const onEditSubmit = async () => {
+        const sessionToEdit = {
+            id: route.params.sessionToEdit.id,
+            date: date.toLocaleDateString(), 
+            location, 
+            type, 
+            climbs: route.params.sessionToEdit.climbs 
+        }
+
+        try {
+            const jsonSessions = await AsyncStorage.getItem('@sessions')
+            let newSessions
+            if (jsonSessions != null) {
+                const oldSessions = JSON.parse(jsonSessions)
+                newSessions = oldSessions
+                newSessions[oldSessions.findIndex(s => s.id === sessionToEdit.id)] = sessionToEdit
+
+            } else {
+                newSessions = [sessionToEdit]
+            }
+            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
+            navigation.navigate('Sessions')
         } catch(e) {
             console.error(e)
         }
