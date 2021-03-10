@@ -35,6 +35,7 @@ const AddClimb = ({ navigation, route }) => {
     const onTypeChange = (value) => {
         setGrading(Object.keys(gradesTab[value])[0])
         setGrade(gradesTab[value][Object.keys(gradesTab[value])[0]][0])
+        setMode('LEAD')
         setType(value)
     }
 
@@ -63,8 +64,22 @@ const AddClimb = ({ navigation, route }) => {
     }, [navigation])
 
     useEffect(() => {
+        if(route.params.climbToEdit) {
+            let climb = route.params.climbToEdit
+            setName(climb.name)
+            setType(climb.type)
+            climb.pitches && setIsMultiPitch(true)
+            climb.pitches && setPitches(climb.pitches)
+            climb.type !== 'BOULDER' && setMode(climb.mode)
+            setGrading(climb.grade.grading)
+            setGrade(climb.grade.grade)
+            setStyle(climb.style)
+        }
+    }, [])
+
+    useEffect(() => {
         if(isSubmitPressed) {
-            onSubmit()
+            route.params.climbToEdit ? onEditSubmit() : onSubmit()
         }
     }, [isSubmitPressed])
 
@@ -96,6 +111,23 @@ const AddClimb = ({ navigation, route }) => {
         } catch(e) {
             console.error(e)
         }
+    }
+
+    const onEditSubmit = async () => {
+        const climbToEdit = {
+            ...(name.length > 0 && { name }),
+            type,
+            ...(type !== 'BOULDERING' && isMultiPitch && { pitches }),
+            ...(type !== 'BOULDERING' && { mode }),
+            grade: { grade, grading },
+            style,
+            index: route.params.climbToEdit.index
+        }
+        console.log(climbToEdit)
+
+        // !!!!!!!!!!!!!!!!!! a faire !
+
+        setIsSubmitPressed(false)
     }
 
     return (

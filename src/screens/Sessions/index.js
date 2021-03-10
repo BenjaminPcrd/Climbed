@@ -78,7 +78,7 @@ const Sessions = ({ navigation }) => {
         const onSessionLongPress = () => {
             Alert.alert(
                 translate('editSession'),
-                translate('editSessionMsg'),
+                translate('editMsg'),
                 [
                     { text: translate('cancel') },
                     { text: translate('edit'), onPress: () => editSession(item) },

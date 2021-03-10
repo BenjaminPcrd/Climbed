@@ -23,6 +23,10 @@ const Session = ({ navigation, route }) => {
         })
     }, [])
 
+    const editClimb = (climbToEdit) => {
+        navigation.navigate('AddClimb', { session: route.params.session, climbToEdit })
+    }
+
     const deleteClimb = async (climbToDelete) => {
         try {
             const jsonSessions = await AsyncStorage.getItem('@sessions')
@@ -47,11 +51,23 @@ const Session = ({ navigation, route }) => {
     const renderItem = ({ item }) => {
         const onClimbLongPress = () => {
             Alert.alert(
-                translate('deleteClimb'),
-                translate('deleteClimbMsg'),
+                translate('editClimb'),
+                translate('editMsg'),
                 [
                     { text: translate('cancel') },
-                    { text: translate('delete'), onPress: () => deleteClimb(item) }
+                    { text: translate('edit'), onPress: () => editClimb(item) },
+                    { 
+                        text: translate('delete'),
+                        onPress: () => Alert.alert(
+                            translate('deleteClimb'),
+                            translate('deleteClimbMsg'),
+                            [
+                                { text: translate('cancel') },
+                                { text: translate('delete'), onPress: () => deleteClimb(item) }
+                            ],
+                            { cancelable: true }
+                        ) 
+                    }
                 ],
                 { cancelable: true }
             )
