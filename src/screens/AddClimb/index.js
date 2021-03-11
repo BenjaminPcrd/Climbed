@@ -112,8 +112,6 @@ const AddClimb = ({ navigation, route }) => {
         editClimb(climbToEdit, route.params.session)
             .then((newSession) => navigation.navigate('Session', { session: newSession, title: `${newSession.location} - ${new Date(newSession.date).toLocaleDateString()}` }))
             .catch(e => console.error(e))
-
-        setIsSubmitPressed(false)
     }
 
     return (
