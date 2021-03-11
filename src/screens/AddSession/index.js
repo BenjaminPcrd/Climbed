@@ -14,7 +14,7 @@ import { HeaderBackButton } from '@react-navigation/stack'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import { Picker } from '@react-native-picker/picker'
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { addSession, editSession } from '../../asyncStorageApi'
 
 import { translate } from '../../translations'
 
@@ -53,7 +53,7 @@ const AddSession = ({ navigation, route }) => {
         }
     }, [isSubmitPressed])
 
-    const onSubmit = async () => {
+    const onSubmit = () => {
         const sessionToAdd = { 
             id: Math.random().toString(36).substr(2, 5),
             date: date.toLocaleDateString(), 
@@ -61,24 +61,12 @@ const AddSession = ({ navigation, route }) => {
             type, 
             climbs: [] 
         }
-
-        try {
-            const jsonSessions = await AsyncStorage.getItem('@sessions')
-            let newSessions
-            if (jsonSessions != null) {
-                const sessions = JSON.parse(jsonSessions)
-                newSessions = [sessionToAdd, ...sessions]
-            } else {
-                newSessions = [sessionToAdd]
-            }
-            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
-            navigation.navigate('Session', { session: sessionToAdd, title: `${sessionToAdd.location} - ${new Date(sessionToAdd.date).toLocaleDateString()}` })
-        } catch(e) {
-            console.error(e)
-        }
+        addSession(sessionToAdd)
+            .then(() => navigation.navigate('Session', { session: sessionToAdd, title: `${sessionToAdd.location} - ${new Date(sessionToAdd.date).toLocaleDateString()}` }))
+            .catch(e => console.error(e))
     }
 
-    const onEditSubmit = async () => {
+    const onEditSubmit = () => {
         const sessionToEdit = {
             id: route.params.sessionToEdit.id,
             date: date.toLocaleDateString(), 
@@ -86,23 +74,9 @@ const AddSession = ({ navigation, route }) => {
             type, 
             climbs: route.params.sessionToEdit.climbs 
         }
-
-        try {
-            const jsonSessions = await AsyncStorage.getItem('@sessions')
-            let newSessions
-            if (jsonSessions != null) {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-                newSessions[oldSessions.findIndex(s => s.id === sessionToEdit.id)] = sessionToEdit
-
-            } else {
-                newSessions = [sessionToEdit]
-            }
-            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
-            navigation.navigate('Sessions')
-        } catch(e) {
-            console.error(e)
-        }
+        editSession(sessionToEdit)
+            .then(() => navigation.navigate('Sessions'))
+            .catch(e => console.error(e))
     }
 
     return (

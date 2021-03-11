@@ -14,7 +14,7 @@ import { HeaderBackButton } from '@react-navigation/stack'
 
 import { Picker } from '@react-native-picker/picker'
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { addClimb, editClimb } from '../../asyncStorageApi'
 
 import { translate } from '../../translations'
 
@@ -66,7 +66,7 @@ const AddClimb = ({ navigation, route }) => {
     useEffect(() => {
         if(route.params.climbToEdit) {
             let climb = route.params.climbToEdit
-            setName(climb.name)
+            climb.name ? setName(climb.name) : setName('')
             setType(climb.type)
             climb.pitches && setIsMultiPitch(true)
             climb.pitches && setPitches(climb.pitches)
@@ -83,7 +83,7 @@ const AddClimb = ({ navigation, route }) => {
         }
     }, [isSubmitPressed])
 
-    const onSubmit = async () => {
+    const onSubmit = () => {
         const climbToAdd = {
             ...(name.length > 0 && { name }),
             type,
@@ -93,27 +93,12 @@ const AddClimb = ({ navigation, route }) => {
             style,
             index: route.params.session.climbs.length
         }
-
-        try {
-            const jsonSessions = await AsyncStorage.getItem('@sessions')
-            let newSessions
-            if (jsonSessions != null) {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-                newSessions.find(s => s.id === route.params.session.id).climbs.push(climbToAdd)
-            } else {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-            }
-            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
-            let newSession = newSessions.find(s => s.id === route.params.session.id)
-            navigation.navigate('Session', { session: newSession, title: `${newSession.location} - ${new Date(newSession.date).toLocaleDateString()}` })
-        } catch(e) {
-            console.error(e)
-        }
+        addClimb(climbToAdd, route.params.session)
+            .then((newSession) => navigation.navigate('Session', { session: newSession, title: `${newSession.location} - ${new Date(newSession.date).toLocaleDateString()}` }))
+            .catch(e => console.error(e))
     }
 
-    const onEditSubmit = async () => {
+    const onEditSubmit = () => {
         const climbToEdit = {
             ...(name.length > 0 && { name }),
             type,
@@ -123,9 +108,10 @@ const AddClimb = ({ navigation, route }) => {
             style,
             index: route.params.climbToEdit.index
         }
-        console.log(climbToEdit)
 
-        // !!!!!!!!!!!!!!!!!! a faire !
+        editClimb(climbToEdit, route.params.session)
+            .then((newSession) => navigation.navigate('Session', { session: newSession, title: `${newSession.location} - ${new Date(newSession.date).toLocaleDateString()}` }))
+            .catch(e => console.error(e))
 
         setIsSubmitPressed(false)
     }

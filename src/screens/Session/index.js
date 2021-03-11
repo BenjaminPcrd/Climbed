@@ -10,7 +10,7 @@ import {
 
 import { HeaderBackButton } from '@react-navigation/stack'
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { deleteClimb } from '../../asyncStorageApi'
 
 import Row from './row'
 
@@ -23,29 +23,14 @@ const Session = ({ navigation, route }) => {
         })
     }, [])
 
-    const editClimb = (climbToEdit) => {
+    const onEditClimbPress = (climbToEdit) => {
         navigation.navigate('AddClimb', { session: route.params.session, climbToEdit })
     }
 
-    const deleteClimb = async (climbToDelete) => {
-        try {
-            const jsonSessions = await AsyncStorage.getItem('@sessions')
-            let newSessions
-            if (jsonSessions != null) {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-                let index = oldSessions.find(s => s.id === route.params.session.id).climbs.findIndex(c => c.index === climbToDelete.index)
-                newSessions.find(s => s.id === route.params.session.id).climbs.splice(index, 1)
-            } else {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-            }
-            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
-            let newSession = newSessions.find(s => s.id === route.params.session.id)
-            navigation.setParams({ session: newSession })
-        } catch(e) {
-            console.error(e)
-        }
+    const onDeleteClimbPress = (climbToDelete) => {
+        deleteClimb(climbToDelete, route.params.session)
+            .then((newSession) => navigation.setParams({ session: newSession }))
+            .catch(e => console.error(e))
     }
 
     const renderItem = ({ item }) => {
@@ -55,7 +40,7 @@ const Session = ({ navigation, route }) => {
                 translate('editMsg'),
                 [
                     { text: translate('cancel') },
-                    { text: translate('edit'), onPress: () => editClimb(item) },
+                    { text: translate('edit'), onPress: () => onEditClimbPress(item) },
                     { 
                         text: translate('delete'),
                         onPress: () => Alert.alert(
@@ -63,7 +48,7 @@ const Session = ({ navigation, route }) => {
                             translate('deleteClimbMsg'),
                             [
                                 { text: translate('cancel') },
-                                { text: translate('delete'), onPress: () => deleteClimb(item) }
+                                { text: translate('delete'), onPress: () => onDeleteClimbPress(item) }
                             ],
                             { cancelable: true }
                         ) 

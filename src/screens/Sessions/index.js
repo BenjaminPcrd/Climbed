@@ -9,7 +9,7 @@ import {
     Alert
 } from 'react-native'
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { getSessions, deleteSession } from '../../asyncStorageApi'
 
 import Row from './row'
 
@@ -22,52 +22,31 @@ const Sessions = ({ navigation }) => {
     const onRefresh = useCallback(() => {
         setRefreshing(true)
         getSessions()
+            .then(newSessions => setSessions(newSessions))
+            .catch(e => console.error(e))
     }, [])
 
     useEffect(() => {
-        getSessions()
-    }, [])
+        setRefreshing(false)
+    }, [sessions])
 
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
             getSessions()
+                .then(newSessions => setSessions(newSessions))
+                .catch(e => console.error(e))
         })
         return unsubscribe
     }, [navigation])
 
-    const getSessions = async () => {
-        try {
-            const jsonSessions = await AsyncStorage.getItem('@sessions')
-            if (jsonSessions != null) {
-                setSessions(JSON.parse(jsonSessions))
-            }
-            setRefreshing(false)
-        } catch(e) {
-            console.error(e)
-        }
-    }
-
-    const editSession = (sessionToEdit) => {
+    const onEditSessionPress = (sessionToEdit) => {
         navigation.navigate('AddSession', { sessionToEdit })
     }
 
-    const deleteSession = async (sessionToDelete) => {
-        try {
-            const jsonSessions = await AsyncStorage.getItem('@sessions')
-            let newSessions
-            if (jsonSessions != null) {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-                newSessions.splice(oldSessions.findIndex(s => s.id === sessionToDelete.id), 1)
-            } else {
-                const oldSessions = JSON.parse(jsonSessions)
-                newSessions = oldSessions
-            }
-            await AsyncStorage.setItem('@sessions', JSON.stringify(newSessions))
-            onRefresh()
-        } catch(e) {
-            console.error(e)
-        }
+    const onDeleteSessionPress = (sessionToDelete) => {
+        deleteSession(sessionToDelete)
+            .then(onRefresh)
+            .catch(e => console.error(e))
     }
 
     const renderItem = ({ item }) => {
@@ -81,7 +60,7 @@ const Sessions = ({ navigation }) => {
                 translate('editMsg'),
                 [
                     { text: translate('cancel') },
-                    { text: translate('edit'), onPress: () => editSession(item) },
+                    { text: translate('edit'), onPress: () => onEditSessionPress(item) },
                     { 
                         text: translate('delete'),
                         onPress: () => Alert.alert(
@@ -89,7 +68,7 @@ const Sessions = ({ navigation }) => {
                             translate('deleteSessionMsg'),
                             [
                                 { text: translate('cancel') },
-                                { text: translate('delete'), onPress: () => deleteSession(item) }
+                                { text: translate('delete'), onPress: () => onDeleteSessionPress(item) }
                             ],
                             { cancelable: true }
                         ) 
