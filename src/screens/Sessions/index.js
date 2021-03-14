@@ -4,9 +4,13 @@ import {
     View,
     FlatList,
     RefreshControl,
-    Button,
-    Alert
+    Pressable,
+    Text,
+    Alert,
+    StyleSheet
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { getSessions, deleteSession } from '../../asyncStorageApi'
 
@@ -80,16 +84,46 @@ const Sessions = ({ navigation }) => {
         return <Row item={item} onPress={onSessionPress} onLongPress={onSessionLongPress}/>
     }
 
+    const renderFooterComponent = () => {
+        return (
+            <Pressable style={styles.addButton} onPress={() => navigation.navigate('AddSession')}>
+                <Icon name='add-circle-outline' size={30} color='white'/>
+                <Text style={styles.addButtonText}> {translate('addSession')}</Text>
+            </Pressable>
+        )
+    }
+
     return (
         <FlatList 
             data={sessions.sort((a, b) => new Date(b.date) - new Date(a.date))}
             keyExtractor={(item, index) => item + index}
             renderItem={renderItem}
-            ListFooterComponent={<Button title={translate('addSession')} color='darkblue' onPress={() => navigation.navigate('AddSession')}/>}
+            ListFooterComponent={renderFooterComponent}
+            contentContainerStyle={styles.contentContainerStyle}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['darkblue']}/>}
-            ItemSeparatorComponent={() => <View style={{height: 3, backgroundColor: 'grey'}}/>}
+            ItemSeparatorComponent={() => <View style={styles.itemSeparatorComponent}/>}
         />
     )
 }
+
+const styles = StyleSheet.create({
+    addButton: ({ pressed }) => [{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 5,
+        backgroundColor: pressed ? 'rgba(0, 0, 139, 0.7)' : 'darkblue'
+    }],
+    addButtonText: {
+        color: 'white'
+    },
+    contentContainerStyle: {
+        backgroundColor: 'white'
+    },
+    itemSeparatorComponent: {
+        height: 3,
+        backgroundColor: 'grey'
+    }
+})
 
 export default Sessions
