@@ -3,7 +3,6 @@ import React, { useState, useEffect, useCallback } from 'react'
 import {
     View,
     FlatList,
-    TouchableOpacity,
     RefreshControl,
     Button,
     Alert
@@ -78,11 +77,7 @@ const Sessions = ({ navigation }) => {
             )
         }
 
-        return (
-            <TouchableOpacity activeOpacity={0.4} onPress={onSessionPress} onLongPress={onSessionLongPress}>
-                <Row item={item}/>
-            </TouchableOpacity>
-        )
+        return <Row item={item} onPress={onSessionPress} onLongPress={onSessionLongPress}/>
     }
 
     return (

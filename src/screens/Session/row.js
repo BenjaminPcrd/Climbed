@@ -2,6 +2,7 @@ import React from 'react'
 
 import {
     View,
+    Pressable,
     Text,
     StyleSheet
 } from 'react-native'
@@ -14,9 +15,9 @@ import BoulderingIcon from "../../assets/route_type_bouldering.svg"
 
 import { translate } from '../../translations'
 
-const Row = ({ item }) => {
+const Row = ({ item, onLongPress }) => {
     return (
-        <View style={styles.row}>
+        <Pressable style={styles.row} onLongPress={onLongPress}>
             <View style={{flex: 1, justifyContent: 'center'}}>
                 {item.type === 'SPORT_CLIMBING' && <SportClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'TRAD_CLIMBING' && <TradClimbingIcon width={50} height={50} fill={"black"}/>}
@@ -47,15 +48,16 @@ const Row = ({ item }) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
-    row: {
+    row:  ({ pressed }) => [{
         padding: 10,
-        flexDirection: 'row'
-    },
+        flexDirection: 'row',
+        backgroundColor: pressed ? 'rgba(0, 0, 0, 0.1)' : 'white'
+    }],
     name: {
         color: 'darkblue',
         fontSize: 18,

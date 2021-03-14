@@ -2,6 +2,7 @@ import React from 'react'
 
 import {
     View,
+    Pressable,
     Text,
     StyleSheet
 } from 'react-native'
@@ -10,9 +11,9 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 import { translate } from '../../translations'
 
-const Row = ({ item }) => {
+const Row = ({ item, onPress, onLongPress }) => {
     return (
-        <View style={styles.row}>
+        <Pressable style={styles.row} onPress={onPress} onLongPress={onLongPress}>
             <View style={{flexDirection: 'row'}}>
                 <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                     <Icon name='location-outline' size={18}/>
@@ -31,14 +32,15 @@ const Row = ({ item }) => {
                     <Icon name='calendar-outline' size={14}/>
                 </View>
             </View>
-        </View>
+        </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
-    row: {
-        padding: 10
-    },
+    row:  ({ pressed }) => [{
+        padding: 10,
+        backgroundColor: pressed ? 'rgba(0, 0, 0, 0.1)' : 'white'
+    }],
     location: {
         color: 'darkblue',
         fontSize: 18,

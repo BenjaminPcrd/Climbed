@@ -4,7 +4,6 @@ import {
     View,
     Button,
     FlatList,
-    TouchableOpacity,
     Alert
 } from 'react-native'
 
@@ -58,11 +57,7 @@ const Session = ({ navigation, route }) => {
             )
         }
 
-        return (
-            <TouchableOpacity activeOpacity={0.4} onLongPress={onClimbLongPress}>
-                <Row item={item}/>
-            </TouchableOpacity>
-        )
+        return <Row item={item} onLongPress={onClimbLongPress}/>
     }
 
     return (
