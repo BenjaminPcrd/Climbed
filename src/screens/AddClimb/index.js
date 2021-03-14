@@ -64,7 +64,7 @@ const AddClimb = ({ navigation, route }) => {
     }, [navigation])
 
     useEffect(() => {
-        if(route.params.climbToEdit) {
+        if(route.params?.climbToEdit) {
             let climb = route.params.climbToEdit
             climb.name ? setName(climb.name) : setName('')
             setType(climb.type)

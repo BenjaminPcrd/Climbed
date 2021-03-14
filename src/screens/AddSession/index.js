@@ -40,7 +40,7 @@ const AddSession = ({ navigation, route }) => {
     }, [navigation])
 
     useEffect(() => {
-        if(route.params) {
+        if(route.params?.sessionToEdit) {
             setDate(new Date(route.params.sessionToEdit.date))
             setLocation(route.params.sessionToEdit.location)
             setType(route.params.sessionToEdit.type)
