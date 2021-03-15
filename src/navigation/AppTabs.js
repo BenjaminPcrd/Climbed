@@ -36,7 +36,7 @@ const AppTabs = () => {
     return (
         <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screenOptions}>
             <Tab.Screen name="SessionsStack" component={SessionsStack} options={{ title: translate('sessions') }}/>
-            <Tab.Screen name="StatsStack" component={StatsStack}/>
+            {/*<Tab.Screen name="StatsStack" component={StatsStack}/>*/}
         </Tab.Navigator>
     )
 }
