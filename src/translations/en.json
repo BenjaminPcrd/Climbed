@@ -3,7 +3,9 @@
     "sessions": "Sessions",
     "indoorSession": "Indoor session",
     "outdoorSession": "Outdoor session",
-    "climbs": "climbs",
+    "climbs": "Climbs",
+    "maxGrade": "Max grade",
+    "avgGrade": "Avg grade",
 
     "addSession": "Add a session",
     "editSession": "Edit session",

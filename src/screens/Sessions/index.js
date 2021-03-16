@@ -101,7 +101,6 @@ const Sessions = ({ navigation }) => {
             ListFooterComponent={renderFooterComponent}
             contentContainerStyle={styles.contentContainerStyle}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['darkblue']}/>}
-            ItemSeparatorComponent={() => <View style={styles.itemSeparatorComponent}/>}
         />
     )
 }
@@ -112,6 +111,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
+        marginTop: 10,
         backgroundColor: pressed ? 'rgba(0, 0, 139, 0.7)' : 'darkblue'
     }],
     addButtonText: {
@@ -119,10 +119,6 @@ const styles = StyleSheet.create({
     },
     contentContainerStyle: {
         backgroundColor: 'white'
-    },
-    itemSeparatorComponent: {
-        height: 3,
-        backgroundColor: 'grey'
     }
 })
 

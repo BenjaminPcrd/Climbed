@@ -3,7 +3,9 @@
     "sessions": "Sessions",
     "indoorSession": "Session en salle",
     "outdoorSession": "Session en falaise",
-    "climbs": "voies",
+    "climbs": "Voies",
+    "maxGrade": "Cotation max",
+    "avgGrade": "Cotation moyenne",
 
     "addSession": "Ajouter une session",
     "editSession": "Modifier la session",
