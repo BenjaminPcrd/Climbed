@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
-        marginTop: 10,
         backgroundColor: pressed ? 'rgba(0, 0, 139, 0.7)' : 'darkblue'
     }],
     addButtonText: {
