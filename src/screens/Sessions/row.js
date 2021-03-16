@@ -9,19 +9,9 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import gradesTab from '../../assets/grades'
 import { translate } from '../../translations'
 
 const Row = ({ item, onPress, onLongPress }) => {
-
-    const maxGrade = () => {
-        return "6b"
-    }
-
-    const avgGrade = () => {
-        return '5c+'
-    }
-
     return (
         <Pressable style={styles.row} onPress={onPress} onLongPress={onLongPress}>
             <View>
