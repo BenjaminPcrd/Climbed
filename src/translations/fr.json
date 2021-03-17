@@ -4,8 +4,9 @@
     "indoorSession": "Session en salle",
     "outdoorSession": "Session en falaise",
     "climbs": "Voies",
-    "maxGrade": "Cotation max",
-    "avgGrade": "Cotation moyenne",
+
+    "emptyTitle": "Hey !",
+    "emptyMsg": "Tu n'as toujours pas enregistré de session. Commence par en créer une nouvelle !",
 
     "addSession": "Ajouter une session",
     "editSession": "Modifier la session",

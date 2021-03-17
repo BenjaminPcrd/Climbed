@@ -4,8 +4,9 @@
     "indoorSession": "Indoor session",
     "outdoorSession": "Outdoor session",
     "climbs": "Climbs",
-    "maxGrade": "Max grade",
-    "avgGrade": "Avg grade",
+
+    "emptyTitle": "Hey!",
+    "emptyMsg": "You have not logged any session yet. Start by adding a new session!",
 
     "addSession": "Add a session",
     "editSession": "Edit session",
