@@ -26,13 +26,13 @@ const Row = ({ item, onLongPress }) => {
                 {item.type === 'BOULDERING' && <BoulderingIcon width={50} height={50} fill={"black"}/>}
             </View>
 
-            <View style={{ flexGrow: 1 }}>
+            <View style={{ flexGrow: 2 }}>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.mode}>{translate(item.mode)}</Text>
                 {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
             </View>
 
-            <View style={{ borderRightWidth: 1, borderRightColor: 'lightgrey', marginVertical: 5 }}/>
+            <View style={{ borderRightWidth: 1, borderRightColor: 'lightgrey', height: '75%' }}/>
 
             <View style={{ flex: 1 }}>
                 <Text style={styles.grade}>{item.grade.grade}</Text>
@@ -45,6 +45,7 @@ const Row = ({ item, onLongPress }) => {
 const styles = StyleSheet.create({
     row:  ({ pressed }) => [{
         flexDirection: 'row',
+        alignItems: 'center',
         backgroundColor: pressed ? 'rgba(0, 0, 0, 0.1)' : 'white',
         borderWidth: 1,
         borderRadius: 5,
