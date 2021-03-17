@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react'
 
 import {
     View,
+    ScrollView,
     Text,
     TextInput,
     Switch,
@@ -115,7 +116,7 @@ const AddClimb = ({ navigation, route }) => {
     }
 
     return (
-        <View>
+        <ScrollView>
             {route.params.session.type === 'OUTDOOR' && (
                 <View style={styles.input}>
                     <Text style={styles.label}>{translate('name')}</Text>
@@ -192,13 +193,17 @@ const AddClimb = ({ navigation, route }) => {
                     <Picker.Item label={translate('ATTEMPTS')} value="ATTEMPTS" />
                 </Picker>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     input: {
-        margin: 10
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        borderRadius: 5,
+        margin: 5,
+        padding: 5
     },
     label: {
         color: 'grey'

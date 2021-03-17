@@ -109,7 +109,11 @@ const AddSession = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
     input: {
-        margin: 10
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        borderRadius: 5,
+        margin: 5,
+        padding: 5
     },
     label: {
         color: 'grey'
