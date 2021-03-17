@@ -5,8 +5,8 @@
     "outdoorSession": "Outdoor session",
     "climbs": "Climbs",
 
-    "emptyTitle": "Hey!",
-    "emptyMsg": "You have not logged any session yet. Start by adding a new session!",
+    "emptySessionsTitle": "Hey!",
+    "emptySessionsMsg": "You have not logged any session yet. Start by adding a new session!",
 
     "addSession": "Add a session",
     "editSession": "Edit session",
@@ -23,6 +23,8 @@
     "type": "Type",
 
     "---------- Session ----------": "",
+    "emptySessionMsg": "Add your first climb!",
+
     "LEAD": "Lead",
     "TOP_ROPE": "Top rope",
     "FOLLOW": "Follow",

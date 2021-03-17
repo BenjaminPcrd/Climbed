@@ -1,21 +1,17 @@
 import React, { useEffect } from 'react'
 
 import {
-    View,
-    Pressable,
-    Text,
     FlatList,
-    Alert,
-    StyleSheet,
+    Alert
 } from 'react-native'
-
-import Icon from 'react-native-vector-icons/Ionicons'
 
 import { HeaderBackButton } from '@react-navigation/stack'
 
 import { deleteClimb } from '../../asyncStorageApi'
 
 import Row from './row'
+import Footer from './footer'
+import Empty from './empty'
 
 import { translate } from '../../translations'
 
@@ -64,45 +60,18 @@ const Session = ({ navigation, route }) => {
         return <Row item={item} onLongPress={onClimbLongPress}/>
     }
 
-    const renderFooterComponent = () => {
-        return (
-            <Pressable style={styles.addButton} onPress={() => navigation.navigate('AddClimb', { session: route.params.session })}>
-                <Icon name='add-circle-outline' size={30} color='white'/>
-                <Text style={styles.addButtonText}> {translate('addClimb')}</Text>
-            </Pressable>
-        )
-    }
-
     return (
         <FlatList 
             data={(route.params.session.climbs).sort((a, b) => b.index - a.index)}
             keyExtractor={(item, index) => item + index}
-            contentContainerStyle={styles.contentContainerStyle}
+            
             renderItem={renderItem}
-            ListFooterComponent={renderFooterComponent}
-            ItemSeparatorComponent={() => <View style={styles.itemSeparatorComponent}/>}
+            ListFooterComponent={<Footer onPress={() => navigation.navigate('AddClimb', { session: route.params.session })}/>}
+            ListEmptyComponent={Empty}
+
+            contentContainerStyle={{ backgroundColor: 'white' }}
         />
     )
 }
-
-const styles = StyleSheet.create({
-    addButton: ({ pressed }) => [{
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 5,
-        backgroundColor: pressed ? 'rgba(0, 0, 139, 0.7)' : 'darkblue'
-    }],
-    addButtonText: {
-        color: 'white'
-    },
-    contentContainerStyle: {
-        backgroundColor: 'white'
-    },
-    itemSeparatorComponent: {
-        height: 3,
-        backgroundColor: 'grey'
-    }
-})
 
 export default Session

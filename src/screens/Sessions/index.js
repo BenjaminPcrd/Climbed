@@ -86,10 +86,10 @@ const Sessions = ({ navigation }) => {
             keyExtractor={(item, index) => item + index}
 
             renderItem={renderItem}
-            ListFooterComponent={Footer}
+            ListFooterComponent={<Footer onPress={() => navigation.navigate('AddSession')}/>}
             ListEmptyComponent={Empty}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['darkblue']}/>}
-            
+
             contentContainerStyle={{ backgroundColor: 'white' }}
         />
     )

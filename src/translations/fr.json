@@ -5,8 +5,8 @@
     "outdoorSession": "Session en falaise",
     "climbs": "Voies",
 
-    "emptyTitle": "Hey !",
-    "emptyMsg": "Tu n'as toujours pas enregistré de session. Commence par en créer une nouvelle !",
+    "emptySessionsTitle": "Hey !",
+    "emptySessionsMsg": "Tu n'as toujours pas enregistré de session. Commence par en créer une nouvelle !",
 
     "addSession": "Ajouter une session",
     "editSession": "Modifier la session",
@@ -23,6 +23,8 @@
     "type": "Type",
 
     "---------- Session ----------": "",
+    "emptySessionMsg": "Ajoute ta première voie !",
+
     "LEAD": "En tête",
     "TOP_ROPE": "En moulinette",
     "FOLLOW": "En Second",

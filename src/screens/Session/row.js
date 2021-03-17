@@ -18,7 +18,7 @@ import { translate } from '../../translations'
 const Row = ({ item, onLongPress }) => {
     return (
         <Pressable style={styles.row} onLongPress={onLongPress}>
-            <View style={{flex: 1, justifyContent: 'center'}}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 {item.type === 'SPORT_CLIMBING' && <SportClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'TRAD_CLIMBING' && <TradClimbingIcon width={50} height={50} fill={"black"}/>}
                 {item.type === 'ICE_CLIMBING' && <IceClimbingIcon width={50} height={50} fill={"black"}/>}
@@ -26,37 +26,31 @@ const Row = ({ item, onLongPress }) => {
                 {item.type === 'BOULDERING' && <BoulderingIcon width={50} height={50} fill={"black"}/>}
             </View>
 
-            <View style={{flex: 5}}>
-                <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 3}}>
-                        <Text style={styles.name}>{item.name}</Text>
-                    </View>
+            <View style={{ flexGrow: 1 }}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.mode}>{translate(item.mode)}</Text>
+                {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
+            </View>
 
-                    <View style={{flex: 1, justifyContent: 'center'}}>
-                        <Text style={styles.grade}>{item.grade.grade}</Text>
-                    </View>
-                </View>
+            <View style={{ borderRightWidth: 1, borderRightColor: 'lightgrey', marginVertical: 5 }}/>
 
-                <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 3, flexDirection: 'row'}}>
-                        <Text style={styles.mode}>{translate(item.mode)}</Text>
-                        {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
-                    </View>
-
-                    <View style={{flex: 1}}>
-                        <Text style={styles.style}>{translate(item.style)}</Text>
-                    </View>
-                </View>
+            <View style={{ flex: 1 }}>
+                <Text style={styles.grade}>{item.grade.grade}</Text>
+                <Text style={styles.style}>{translate(item.style)}</Text>
             </View>
         </Pressable>
-    )
+    ) 
 }
 
 const styles = StyleSheet.create({
     row:  ({ pressed }) => [{
-        padding: 10,
         flexDirection: 'row',
-        backgroundColor: pressed ? 'rgba(0, 0, 0, 0.1)' : 'white'
+        backgroundColor: pressed ? 'rgba(0, 0, 0, 0.1)' : 'white',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: 'lightgrey',
+        margin: 10,
+        paddingVertical: 10
     }],
     name: {
         color: 'darkblue',

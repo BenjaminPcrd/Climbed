@@ -14,7 +14,7 @@ const Footer = ({ onPress }) => {
     return (
         <Pressable style={styles.addButton} onPress={onPress}>
             <Icon name='add-circle-outline' size={30} color='white'/>
-            <Text style={styles.addButtonText}> {translate('addSession')}</Text>
+            <Text style={styles.addButtonText}> {translate('addClimb')}</Text>
         </Pressable>
     )
 }

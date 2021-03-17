@@ -15,9 +15,8 @@ const Empty = () => {
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Icon name='mountains' size={50}/>   
             </View>
-            <View style={{ flex: 3 }}>
-                <Text style={styles.title}>{translate('emptySessionsTitle')}</Text>
-                <Text>{translate('emptySessionsMsg')}</Text>
+            <View style={{ flex: 3, justifyContent: 'center' }}>
+                <Text style={styles.msg}>{translate('emptySessionMsg')}</Text>
             </View>
         </View>
     )
@@ -32,9 +31,9 @@ const styles = StyleSheet.create({
         margin: 10,
         paddingVertical: 10
     },
-    title: {
+    msg: {
         color: 'darkblue',
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: 'bold'
     }
 })
