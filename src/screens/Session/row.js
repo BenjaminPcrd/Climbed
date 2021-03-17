@@ -18,15 +18,13 @@ import { translate } from '../../translations'
 const Row = ({ item, onLongPress }) => {
     return (
         <Pressable style={styles.row} onLongPress={onLongPress}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                {item.type === 'SPORT_CLIMBING' && <SportClimbingIcon width={50} height={50} fill={"black"}/>}
-                {item.type === 'TRAD_CLIMBING' && <TradClimbingIcon width={50} height={50} fill={"black"}/>}
-                {item.type === 'ICE_CLIMBING' && <IceClimbingIcon width={50} height={50} fill={"black"}/>}
-                {item.type === 'AID_CLIMBING' && <AidClimbingIcon width={50} height={50} fill={"black"}/>}
-                {item.type === 'BOULDERING' && <BoulderingIcon width={50} height={50} fill={"black"}/>}
-            </View>
+            {item.type === 'SPORT_CLIMBING' && <SportClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
+            {item.type === 'TRAD_CLIMBING' && <TradClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
+            {item.type === 'ICE_CLIMBING' && <IceClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
+            {item.type === 'AID_CLIMBING' && <AidClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
+            {item.type === 'BOULDERING' && <BoulderingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
 
-            <View style={{ flexGrow: 2 }}>
+            <View style={{ flex: 2 }}>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.mode}>{translate(item.mode)}</Text>
                 {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
@@ -50,7 +48,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         borderColor: 'lightgrey',
-        margin: 10,
+        marginTop: 10,
+        marginHorizontal: 10,
         paddingVertical: 10
     }],
     name: {
