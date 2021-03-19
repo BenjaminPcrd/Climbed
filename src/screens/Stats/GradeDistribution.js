@@ -6,7 +6,7 @@ import {
     processColor
 } from 'react-native'
 
-import { BarChart } from 'react-native-charts-wrapper'
+import { PieChart } from 'react-native-charts-wrapper'
 
 import gradesTab from '../../assets/grades'
 
@@ -14,12 +14,9 @@ import { getSessions } from'../../asyncStorageApi'
 
 const GradeDistribution = () => {
     const [data, setData] = useState()
-    const [xAxis, setXAxis] = useState()
-    const [yAxis, setYAxis] = useState()
 
     useEffect(() => {
         getData()
-
     }, [])
 
     const getData = async() => {
@@ -28,72 +25,42 @@ const GradeDistribution = () => {
         let sport = grades.map(g => g.grade).sort((a, b) => gradesTab['SPORT_CLIMBING']['FR'].indexOf(a) - gradesTab['SPORT_CLIMBING']['FR'].indexOf(b))
         let values = {}
         sport.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
-        
-        setData({
-            dataSets:[
-                {
-                    label: "Grade count", 
-                    values: Object.values(values).map(v => ({y: v})),
-                    config: {
-                        color: processColor('darkblue'),
-                        valueFormatter: "###",
-                        valueTextSize: 14,
-                        valueTextColor: processColor('white')
-                    }
-                }
-            ],
-            config: {
-                barWidth: 0.7,
-                valueFormatter: "$###.0",
-                drawValues: true,
-            }
-        })
-        
-        setXAxis({
-            position: 'BOTTOM',
-            textSize: 14,
-            valueFormatter: Object.keys(values),
-            granularityEnabled: true,
-            granularity : 1,
-            drawGridLines: false,
-            drawAxisLine: true,
-        })
 
-        setYAxis({
-            right: {
-                enabled: true,
-                drawGridLines: false,
-                drawAxisLine: true,
-                drawLabels: false,
-            },
-            left: {
-                enabled: true,
-                drawGridLines: true,
-                drawAxisLine: true,
-                drawLabels: false,
-                granularityEnabled: true,
-                granularity : 1,
-                textSize: 14,
-            }
+        setData({
+            dataSets: [{
+                values: Object.entries(values).map(v => ({ label: v[0], value: v[1] })),
+                label: 'Grade distribution',
+                config: {
+                    colors: Array.from({ length: Object.entries(values).length }, () => processColor(`rgb(${Math.floor(Math.random() * (255 - 100)) + 100}, ${Math.floor(Math.random() * (255 - 100)) + 100}, ${Math.floor(Math.random() * (255 - 100)) + 100})`)),
+                    valueTextSize: 18,
+                    valueTextColor: processColor('black'),
+                    sliceSpace: 5,
+                    valueFormatter: "###",
+                }
+            }]
         })
-        
     }
 
     return (
         <View style={{ flex: 1 }}>
-            <BarChart
+            <PieChart
+                style={{ flex: 1 }}
                 data={data}
-                xAxis={xAxis}
-                yAxis={yAxis}
 
+                usePercentValues={false}
                 chartDescription={{ text: '' }}
                 legend={{ enabled: false }}
                 touchEnabled={false}
-                drawValueAboveBar={false}
                 
-                style={{ flex: 1 }}
+                entryLabelColor={processColor('darkblue')}
+                entryLabelTextSize={12}
+                
+                styledCenterText={{ text:'Grade distribution', color: processColor('black'), size: 20 }}
+                centerTextRadiusPercent={100}
+                holeRadius={40}
+                holeColor={processColor('transparent')}
+                transparentCircleRadius={0}
             />
-            <View style={{ flex: 1 }}></View>
         </View>
     )
 }
