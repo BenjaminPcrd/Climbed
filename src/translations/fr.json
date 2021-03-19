@@ -55,5 +55,10 @@
     "TRAD_CLIMBING": "Escalade traditionnelle",
     "ICE_CLIMBING": "Escalade de glace",
     "AID_CLIMBING": "Escalade artificielle",
-    "BOULDERING": "Escalade de bloc"
+    "BOULDERING": "Escalade de bloc",
+
+    "---------- Stats ----------": "",
+    "stats": "Statistiques",
+    "gradeDistribution": "Distribution des cotations"
+
 }

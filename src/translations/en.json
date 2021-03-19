@@ -55,5 +55,9 @@
     "TRAD_CLIMBING": "Trad climbing",
     "ICE_CLIMBING": "Ice climbing",
     "AID_CLIMBING": "Aid climbing",
-    "BOULDERING": "Bouldering"
+    "BOULDERING": "Bouldering",
+
+    "---------- Stats ----------": "",
+    "stats": "Statistics",
+    "gradeDistribution": "Grade distribution"
 }

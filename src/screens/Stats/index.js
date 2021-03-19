@@ -9,16 +9,18 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
+import { translate } from '../../translations'
+
 const Stats = ({ navigation }) => {
     return (
         <View>
             <Pressable style={styles.item} onPress={() => navigation.navigate('GradeDistribution')}>
-                <Text style={styles.text}>Grade distribution</Text>
+                <Text style={styles.text}>{translate('gradeDistribution')}</Text>
                 <Icon name='chevron-forward' size={25} style={styles.icon}/>
             </Pressable>
             <View style={styles.separator}/>
             <Pressable style={styles.item}>
-                <Text style={styles.text}>Style distribution</Text>
+                <Text style={styles.text}>{translate('gradeDistribution')}</Text>
                 <Icon name='chevron-forward' size={25} style={styles.icon}/>
             </Pressable>
         </View>

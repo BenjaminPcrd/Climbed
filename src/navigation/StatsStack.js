@@ -19,8 +19,8 @@ const screenOptions = {
 const StatsStack = () => {
     return (
         <Stack.Navigator screenOptions={screenOptions}>
-            <Stack.Screen name="Stats" component={Stats}/>
-            <Stack.Screen name="GradeDistribution" component={GradeDistribution}/>
+            <Stack.Screen name="Stats" component={Stats} options={() => ({ title: translate('stats') })}/>
+            <Stack.Screen name="GradeDistribution" component={GradeDistribution} options={() => ({ title: translate('gradeDistribution') })}/>
         </Stack.Navigator>
     )
 }

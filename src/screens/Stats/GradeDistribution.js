@@ -51,11 +51,11 @@ const GradeDistribution = () => {
                 chartDescription={{ text: '' }}
                 legend={{ enabled: false }}
                 touchEnabled={false}
-                
+
                 entryLabelColor={processColor('darkblue')}
-                entryLabelTextSize={12}
+                entryLabelTextSize={18}
                 
-                styledCenterText={{ text:'Grade distribution', color: processColor('black'), size: 20 }}
+                styledCenterText={{ text:'', color: processColor('black'), size: 20 }}
                 centerTextRadiusPercent={100}
                 holeRadius={40}
                 holeColor={processColor('transparent')}
