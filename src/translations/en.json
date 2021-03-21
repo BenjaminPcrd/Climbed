@@ -53,6 +53,12 @@
     "style": "Style",
     "height": "Height",
 
+    "SPORT_CLIMBING": "Sport climbing",
+    "TRAD_CLIMBING": "Trad climbing",
+    "ICE_CLIMBING": "Ice climbing",
+    "AID_CLIMBING": "Aid climbing",
+    "BOULDERING": "Bouldering",
+
     "routeProfile": "Route profile",
     "notSet": "Not set",
     "slab": "Slab",
@@ -80,12 +86,6 @@
     "technical": "Technical",
     "fingery": "Fingery",
     "placement": "Placement",
-    
-    "SPORT_CLIMBING": "Sport climbing",
-    "TRAD_CLIMBING": "Trad climbing",
-    "ICE_CLIMBING": "Ice climbing",
-    "AID_CLIMBING": "Aid climbing",
-    "BOULDERING": "Bouldering",
 
     "---------- Stats ----------": "",
     "stats": "Statistics",

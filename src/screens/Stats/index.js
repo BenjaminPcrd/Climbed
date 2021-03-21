@@ -19,8 +19,8 @@ const Stats = ({ navigation }) => {
                 <Icon name='chevron-forward' size={25} style={styles.icon}/>
             </Pressable>
             <View style={styles.separator}/>
-            <Pressable style={styles.item}>
-                <Text style={styles.text}>{translate('gradeDistribution')}</Text>
+            <Pressable style={styles.item} onPress={() => navigation.navigate('ModeDistribution')}>
+                <Text style={styles.text}>{translate('modeDistribution')}</Text>
                 <Icon name='chevron-forward' size={25} style={styles.icon}/>
             </Pressable>
         </View>

@@ -52,6 +52,12 @@
     "grading": "Système de cotation",
     "style": "Style",
     "height": "Hauteur",
+
+    "SPORT_CLIMBING": "Escalade sportive",
+    "TRAD_CLIMBING": "Escalade traditionnelle",
+    "ICE_CLIMBING": "Escalade de glace",
+    "AID_CLIMBING": "Escalade artificielle",
+    "BOULDERING": "Escalade de bloc",
     
     "routeProfile": "Profile de la voie",
     "notSet": "Non selectionné",
@@ -80,12 +86,6 @@
     "technical": "Technique",
     "fingery": "Doigté",
     "placement": "Placement",
-
-    "SPORT_CLIMBING": "Escalade sportive",
-    "TRAD_CLIMBING": "Escalade traditionnelle",
-    "ICE_CLIMBING": "Escalade de glace",
-    "AID_CLIMBING": "Escalade artificielle",
-    "BOULDERING": "Escalade de bloc",
 
     "---------- Stats ----------": "",
     "stats": "Statistiques",
