@@ -4,6 +4,7 @@
     "indoorSession": "Indoor session",
     "outdoorSession": "Outdoor session",
     "climbs": "Climbs",
+    "climb": "Climb",
 
     "emptySessionsTitle": "Hey!",
     "emptySessionsMsg": "You have not logged any session yet. Start by adding a new session!",

@@ -4,6 +4,7 @@
     "indoorSession": "Session en salle",
     "outdoorSession": "Session en falaise",
     "climbs": "Voies",
+    "climb": "Voie",
 
     "emptySessionsTitle": "Hey !",
     "emptySessionsMsg": "Tu n'as toujours pas enregistré de session. Commence par en créer une nouvelle !",

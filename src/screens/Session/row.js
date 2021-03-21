@@ -15,9 +15,9 @@ import BoulderingIcon from "../../assets/route_type_bouldering.svg"
 
 import { translate } from '../../translations'
 
-const Row = ({ item, onLongPress }) => {
+const Row = ({ item, onPress, onLongPress }) => {
     return (
-        <Pressable style={styles.row} onLongPress={onLongPress}>
+        <Pressable style={styles.row} onPress={onPress} onLongPress={onLongPress}>
             {item.type === 'SPORT_CLIMBING' && <SportClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
             {item.type === 'TRAD_CLIMBING' && <TradClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}
             {item.type === 'ICE_CLIMBING' && <IceClimbingIcon width={50} height={50} fill={"black"} style={{ marginHorizontal: 10 }}/>}

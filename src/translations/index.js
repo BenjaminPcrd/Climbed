@@ -9,7 +9,7 @@ var languageTag = findBestAvailableLanguage(Object.keys(translations)).languageT
 //languageTag = 'en'
 
 const translate = key => {
-	return translations[languageTag]()[key]
+	return translations[languageTag]()[key] || key + ' (not translated)'
 }
 
 export {

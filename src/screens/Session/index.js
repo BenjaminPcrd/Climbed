@@ -33,6 +33,10 @@ const Session = ({ navigation, route }) => {
     }
 
     const renderItem = ({ item }) => {
+        const onClimbPress = () => {
+            navigation.navigate('Climb', { climb: item })
+        }
+
         const onClimbLongPress = () => {
             Alert.alert(
                 translate('editClimb'),
@@ -57,7 +61,7 @@ const Session = ({ navigation, route }) => {
             )
         }
 
-        return <Row item={item} onLongPress={onClimbLongPress}/>
+        return <Row item={item} onPress={onClimbPress} onLongPress={onClimbLongPress}/>
     }
 
     return (
