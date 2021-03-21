@@ -4,9 +4,48 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": 0, "type": "SPORT_CLIMBING", "name": "Cantal party", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": 1, "type": "SPORT_CLIMBING", "name": "Soleil vert", "grade": { "grade": "4c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": 2, "type": "SPORT_CLIMBING", "name": "Solo", "grade": { "grade": "4a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            {
+                "index": 0,
+                "type": "SPORT_CLIMBING",
+                "name": "Cantal party",
+                "grade": {
+                    "grade": "4a",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 1,
+                "type": "SPORT_CLIMBING",
+                "name": "Soleil vert",
+                "grade": {
+                    "grade": "4c",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 2,
+                "type": "SPORT_CLIMBING",
+                "name": "Solo",
+                "grade": {
+                    "grade": "4a",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            }
         ]
     },
     {
@@ -14,8 +53,34 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": 0, "type": "SPORT_CLIMBING", "name": "Aerial", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": 1, "type": "SPORT_CLIMBING", "name": "Rencontre fortuite", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" }
+            {
+                "index": 0,
+                "type": "SPORT_CLIMBING",
+                "name": "Aerial",
+                "grade": {
+                    "grade": "5c",
+                    "grading": "FR"
+                },
+                "mode": "TOP_ROPE",
+                "style": "FLASH",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 1,
+                "type": "SPORT_CLIMBING",
+                "name": "Rencontre fortuite",
+                "grade": {
+                    "grade": "6a",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ATTEMPTS",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            }
         ]
     },
     {
@@ -23,10 +88,62 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": 0, "type": "SPORT_CLIMBING", "name": "Nabuco", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": 1, "type": "SPORT_CLIMBING", "name": "Asturias", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": 2, "type": "SPORT_CLIMBING", "name": "T'empêche tout le monde de dormir", "grade": { "grade": "6a", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" },
-            { "index": 3, "type": "SPORT_CLIMBING", "name": "Le chenu", "grade": { "grade": "5c", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT" }
+            {
+                "index": 0,
+                "type": "SPORT_CLIMBING",
+                "name": "Nabuco",
+                "grade": {
+                    "grade": "5b",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 1,
+                "type": "SPORT_CLIMBING",
+                "name": "Asturias",
+                "grade": {
+                    "grade": "6a",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 2,
+                "type": "SPORT_CLIMBING",
+                "name": "T'empêche tout le monde de dormir",
+                "grade": {
+                    "grade": "6a",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 3,
+                "type": "SPORT_CLIMBING",
+                "name": "Le chenu",
+                "grade": {
+                    "grade": "5c",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            }
         ]
     },
     {
@@ -34,10 +151,62 @@
         "location": "La montagne percée",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": 0, "type": "SPORT_CLIMBING", "name": "Mathilde", "grade": { "grade": "5a", "grading": "FR" }, "mode": "LEAD", "style": "FLASH" },
-            { "index": 1, "type": "SPORT_CLIMBING", "name": "Sigma", "grade": { "grade": "6a+", "grading": "FR" }, "mode": "LEAD", "style": "ATTEMPTS" },
-            { "index": 2, "type": "SPORT_CLIMBING", "name": "Allez les jeunes", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
-            { "index": 3, "type": "SPORT_CLIMBING", "name": "Ju, t'es ou ?", "grade": { "grade": "4b", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" }
+            {
+                "index": 0,
+                "type": "SPORT_CLIMBING",
+                "name": "Mathilde",
+                "grade": {
+                    "grade": "5a",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "FLASH",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 1,
+                "type": "SPORT_CLIMBING",
+                "name": "Sigma",
+                "grade": {
+                    "grade": "6a+",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ATTEMPTS",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 2,
+                "type": "SPORT_CLIMBING",
+                "name": "Allez les jeunes",
+                "grade": {
+                    "grade": "5c",
+                    "grading": "FR"
+                },
+                "mode": "TOP_ROPE",
+                "style": "FLASH",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 3,
+                "type": "SPORT_CLIMBING",
+                "name": "Ju, t'es ou ?",
+                "grade": {
+                    "grade": "4b",
+                    "grading": "FR"
+                },
+                "mode": "TOP_ROPE",
+                "style": "FLASH",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            }
         ]
     },
     {
@@ -45,11 +214,81 @@
         "location": "La roche Gournier",
         "type": "OUTDOOR",
         "climbs": [
-            { "index": 0, "type": "SPORT_CLIMBING", "name": "Les copains d'abord", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "height": "18" },
-            { "index": 1, "type": "SPORT_CLIMBING", "name": "Soft qui peut", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "height": "25" },
-            { "index": 2, "type": "SPORT_CLIMBING", "name": "Castor et Pollux", "grade": { "grade": "6b", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH", "height": "10" },
-            { "index": 3, "type": "SPORT_CLIMBING", "name": "Avoir et Etre", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "ATTEMPTS", "height": "18m" },
-            { "index": 3, "type": "SPORT_CLIMBING", "name": "Bienvenue chez nous", "grade": { "grade": "6a", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH", "height": "12m" }
+            {
+                "index": 0,
+                "type": "SPORT_CLIMBING",
+                "name": "Les copains d'abord",
+                "grade": {
+                    "grade": "5b",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "height": "18",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 1,
+                "type": "SPORT_CLIMBING",
+                "name": "Soft qui peut",
+                "grade": {
+                    "grade": "5b",
+                    "grading": "FR"
+                },
+                "mode": "LEAD",
+                "style": "ONSIGHT",
+                "height": "25",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 2,
+                "type": "SPORT_CLIMBING",
+                "name": "Castor et Pollux",
+                "grade": {
+                    "grade": "6b",
+                    "grading": "FR"
+                },
+                "mode": "TOP_ROPE",
+                "style": "FLASH",
+                "height": "10",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 3,
+                "type": "SPORT_CLIMBING",
+                "name": "Avoir et Etre",
+                "grade": {
+                    "grade": "6c",
+                    "grading": "FR"
+                },
+                "mode": "TOP_ROPE",
+                "style": "ATTEMPTS",
+                "height": "18m",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            },
+            {
+                "index": 3,
+                "type": "SPORT_CLIMBING",
+                "name": "Bienvenue chez nous",
+                "grade": {
+                    "grade": "6a",
+                    "grading": "FR"
+                },
+                "mode": "TOP_ROPE",
+                "style": "FLASH",
+                "height": "12m",
+                "routeProfile": "notSet",
+                "dominantHoldType": "notSet",
+                "routeCharacter": "notSet"
+            }
         ]
     }
 ]

@@ -32,6 +32,10 @@ const AddClimb = ({ navigation, route }) => {
     const [grade, setGrade] = useState('1')
     const [grading, setGrading] = useState('FR')
     const [style, setStyle] = useState('ONSIGHT')
+    const [height, setHeight] = useState('')
+    const [routeProfile, setRouteProfile] = useState('notSet')
+    const [dominantHoldType, setDominantHoldType] = useState('notSet')
+    const [routeCharacter, setRouteCharacter] = useState('notSet')
 
     const onTypeChange = (value) => {
         setGrading(Object.keys(gradesTab[value])[0])
@@ -75,6 +79,10 @@ const AddClimb = ({ navigation, route }) => {
             setGrading(climb.grade.grading)
             setGrade(climb.grade.grade)
             setStyle(climb.style)
+            climb.height ? setHeight(climb.height) : setHeight('')
+            setRouteProfile(climb.routeProfile)
+            setDominantHoldType(climb.dominantHoldType)
+            setRouteCharacter(climb.routeCharacter)
         }
     }, [])
 
@@ -92,6 +100,10 @@ const AddClimb = ({ navigation, route }) => {
             ...(type !== 'BOULDERING' && { mode }),
             grade: { grade, grading },
             style,
+            ...(type !== 'BOULDERING' && height.length > 0 && { height }),
+            routeProfile,
+            dominantHoldType,
+            routeCharacter,
             index: route.params.session.climbs.length
         }
         addClimb(climbToAdd, route.params.session)
@@ -107,6 +119,10 @@ const AddClimb = ({ navigation, route }) => {
             ...(type !== 'BOULDERING' && { mode }),
             grade: { grade, grading },
             style,
+            ...(type !== 'BOULDERING' && height.length > 0 && { height }),
+            routeProfile,
+            dominantHoldType,
+            routeCharacter,
             index: route.params.climbToEdit.index
         }
 
@@ -120,7 +136,7 @@ const AddClimb = ({ navigation, route }) => {
             {route.params.session.type === 'OUTDOOR' && (
                 <View style={styles.input}>
                     <Text style={styles.label}>{translate('name')}</Text>
-                    <TextInput value={name} onChangeText={setName} underlineColorAndroid='darkblue'/>
+                    <TextInput value={name} onChangeText={setName} autoCapitalize="words" underlineColorAndroid='darkblue'/>
                 </View>
             )}
             
@@ -193,6 +209,57 @@ const AddClimb = ({ navigation, route }) => {
                     <Picker.Item label={translate('ATTEMPTS')} value="ATTEMPTS" />
                 </Picker>
             </View>
+
+
+            {route.params.session.type === 'OUTDOOR' && type !== 'BOULDERING' && (
+                <View style={styles.input}>
+                    <Text style={styles.label}>{translate('height')}</Text>
+                    <TextInput value={height} onChangeText={setHeight} keyboardType="number-pad" underlineColorAndroid='darkblue'/>
+                </View>
+            )}
+
+            <View style={styles.input}>
+                <Text style={styles.label}>{translate('routeProfile')}</Text>
+                <Picker selectedValue={routeProfile} onValueChange={setRouteProfile} mode='dropdown'>
+                    <Picker.Item label={translate('notSet')} value="notSet" />
+                    <Picker.Item label={translate('slab')} value="slab" />
+                    <Picker.Item label={translate('vertical')} value="vertical" />
+                    <Picker.Item label={translate('overhang')} value="overhang" />
+                    <Picker.Item label={translate('roof')} value="roof" />
+                    <Picker.Item label={translate('arete')} value="arete" />
+                    <Picker.Item label={translate('corner')} value="corner" />
+                    <Picker.Item label={translate('chimney')} value="chimney" />
+                </Picker>
+            </View>
+
+            <View style={styles.input}>
+                <Text style={styles.label}>{translate('dominantHoldType')}</Text>
+                <Picker selectedValue={dominantHoldType} onValueChange={setDominantHoldType} mode='dropdown'>
+                    <Picker.Item label={translate('notSet')} value="notSet" />
+                    <Picker.Item label={translate('jugs')} value="jugs" />
+                    <Picker.Item label={translate('crimps')} value="crimps" />
+                    <Picker.Item label={translate('pinches')} value="pinches" />
+                    <Picker.Item label={translate('slopers')} value="slopers" />
+                    <Picker.Item label={translate('pockets')} value="pockets" />
+                    <Picker.Item label={translate('underclings')} value="underclings" />
+                    <Picker.Item label={translate('flakes')} value="flakes" />
+                    <Picker.Item label={translate('cracks')} value="cracks" />
+                </Picker>
+            </View>
+
+            <View style={styles.input}>
+                <Text style={styles.label}>{translate('routeCharacter')}</Text>
+                <Picker selectedValue={routeCharacter} onValueChange={setRouteCharacter} mode='dropdown'>
+                    <Picker.Item label={translate('notSet')} value="notSet" />
+                    <Picker.Item label={translate('dyno')} value="dyno" />
+                    <Picker.Item label={translate('endurance')} value="endurance" />
+                    <Picker.Item label={translate('power')} value="power" />
+                    <Picker.Item label={translate('technical')} value="technical" />
+                    <Picker.Item label={translate('fingery')} value="fingery" />
+                    <Picker.Item label={translate('placement')} value="placement" />
+                </Picker>
+            </View>
+            
         </ScrollView>
     )
 }
