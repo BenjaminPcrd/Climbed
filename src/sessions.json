@@ -39,5 +39,17 @@
             { "index": 2, "type": "SPORT_CLIMBING", "name": "Allez les jeunes", "grade": { "grade": "5c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" },
             { "index": 3, "type": "SPORT_CLIMBING", "name": "Ju, t'es ou ?", "grade": { "grade": "4b", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH" }
         ]
+    },
+    {
+        "date": "2021-03-20",
+        "location": "La roche Gournier",
+        "type": "OUTDOOR",
+        "climbs": [
+            { "index": 0, "type": "SPORT_CLIMBING", "name": "Les copains d'abord", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "height": "18" },
+            { "index": 1, "type": "SPORT_CLIMBING", "name": "Soft qui peut", "grade": { "grade": "5b", "grading": "FR" }, "mode": "LEAD", "style": "ONSIGHT", "height": "25" },
+            { "index": 2, "type": "SPORT_CLIMBING", "name": "Castor et Pollux", "grade": { "grade": "6b", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH", "height": "10" },
+            { "index": 3, "type": "SPORT_CLIMBING", "name": "Avoir et Etre", "grade": { "grade": "6c", "grading": "FR" }, "mode": "TOP_ROPE", "style": "ATTEMPTS", "height": "18m" },
+            { "index": 3, "type": "SPORT_CLIMBING", "name": "Bienvenue chez nous", "grade": { "grade": "6a", "grading": "FR" }, "mode": "TOP_ROPE", "style": "FLASH", "height": "12m" }
+        ]
     }
 ]
