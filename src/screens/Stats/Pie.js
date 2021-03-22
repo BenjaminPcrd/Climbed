@@ -9,7 +9,7 @@ import { PieChart } from 'react-native-charts-wrapper'
 const Pie = ({ route }) => {
     return (
         <PieChart
-            style={{ flex: 1 }}
+            style={{ flex: 1, margin: 10 }}
             data={{
                 dataSets: [{
                     values: route.params.data.values,

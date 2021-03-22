@@ -3,6 +3,8 @@
     "sessions": "Sessions",
     "indoorSession": "Session en salle",
     "outdoorSession": "Session en falaise",
+    "INDOOR": "En salle",
+    "OUTDOOR": "En falaise",
     "climbs": "Voies",
     "climb": "Voie",
 
@@ -91,7 +93,8 @@
     "stats": "Statistiques",
     "gradeDistribution": "Distribution des cotations",
     "modeDistribution": "Distribution des modes d'escalade",
-    "styleDistribution": "Distribution des styles d'escalade"
-
-
+    "styleDistribution": "Distribution des styles d'escalade",
+    "climbTypeDistribution": "Distribution des types d'escalade",
+    "sessionTypeDistribution": "Distribution des types de session",
+    "sessionLocationDistribution": "Distribution des localisations des sessions"
 }

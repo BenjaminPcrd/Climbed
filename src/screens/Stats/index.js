@@ -4,8 +4,7 @@ import {
     View,
     Text,
     Pressable,
-    StyleSheet,
-    processColor
+    StyleSheet
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -39,7 +38,6 @@ const Stats = ({ navigation }) => {
         let sport = grades.map(g => g.grade).sort((a, b) => gradesTab['SPORT_CLIMBING']['FR'].indexOf(a) - gradesTab['SPORT_CLIMBING']['FR'].indexOf(b))
         let values = {}
         sport.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
-
         return { values: Object.entries(values).map(v => ({ label: v[0], value: v[1] })), label: translate('gradeDistribution') }
     }
 
@@ -47,16 +45,35 @@ const Stats = ({ navigation }) => {
         let modes = sessions.map(s => s.climbs).flat().map(c => c.mode).filter(m => m != undefined)
         let values = {}
         modes.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
-
         return { values: Object.entries(values).map(v => ({ label: translate(v[0]), value: v[1] })), label: translate('modeDistribution') }
     }
 
     const getStyleDistributionData = () => {
-        let modes = sessions.map(s => s.climbs).flat().map(c => c.style).filter(m => m != undefined)
+        let styles = sessions.map(s => s.climbs).flat().map(c => c.style).filter(m => m != undefined)
         let values = {}
-        modes.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
-
+        styles.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
         return { values: Object.entries(values).map(v => ({ label: translate(v[0]), value: v[1] })), label: translate('styleDistribution') }
+    }
+
+    const getClimbTypeDistributionData = () => {
+        let types = sessions.map(s => s.climbs).flat().map(c => c.type)
+        let values = {}
+        types.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
+        return { values: Object.entries(values).map(v => ({ label: translate(v[0]), value: v[1] })), label: translate('climbTypeDistribution') }
+    }
+
+    const getSessionTypeDistributionData = () => {
+        let types = sessions.map(s => s.type).flat()
+        let values = {}
+        types.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
+        return { values: Object.entries(values).map(v => ({ label: translate(v[0]), value: v[1] })), label: translate('sessionTypeDistribution') }
+    }
+
+    const getSessionLocationDistributionData = () => {
+        let locations = sessions.map(s => s.location).flat()
+        let values = {}
+        locations.forEach(g => values[g] = values[g] ? values[g] + 1 : 1)
+        return { values: Object.entries(values).map(v => ({ label: v[0], value: v[1] })), label: translate('sessionLocationDistribution') }
     }
 
     return (
@@ -73,6 +90,21 @@ const Stats = ({ navigation }) => {
             <View style={styles.separator}/>
             <Pressable style={styles.item} onPress={() => navigation.navigate('Pie', { data: getStyleDistributionData(), title: translate('styleDistribution') })}>
                 <Text style={styles.text}>{translate('styleDistribution')}</Text>
+                <Icon name='chevron-forward' size={25} style={styles.icon}/>
+            </Pressable>
+            <View style={styles.separator}/>
+            <Pressable style={styles.item} onPress={() => navigation.navigate('Pie', { data: getClimbTypeDistributionData(), title: translate('climbTypeDistribution') })}>
+                <Text style={styles.text}>{translate('climbTypeDistribution')}</Text>
+                <Icon name='chevron-forward' size={25} style={styles.icon}/>
+            </Pressable>
+            <View style={styles.separator}/>
+            <Pressable style={styles.item} onPress={() => navigation.navigate('Pie', { data: getSessionTypeDistributionData(), title: translate('sessionTypeDistribution') })}>
+                <Text style={styles.text}>{translate('sessionTypeDistribution')}</Text>
+                <Icon name='chevron-forward' size={25} style={styles.icon}/>
+            </Pressable>
+            <View style={styles.separator}/>
+            <Pressable style={styles.item} onPress={() => navigation.navigate('Pie', { data: getSessionLocationDistributionData(), title: translate('sessionLocationDistribution') })}>
+                <Text style={styles.text}>{translate('sessionLocationDistribution')}</Text>
                 <Icon name='chevron-forward' size={25} style={styles.icon}/>
             </Pressable>
         </View>

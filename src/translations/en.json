@@ -3,6 +3,8 @@
     "sessions": "Sessions",
     "indoorSession": "Indoor session",
     "outdoorSession": "Outdoor session",
+    "INDOOR": "Indoor",
+    "OUTDOOR": "Outdoor",
     "climbs": "Climbs",
     "climb": "Climb",
 
@@ -91,5 +93,8 @@
     "stats": "Statistics",
     "gradeDistribution": "Grade distribution",
     "modeDistribution": "Climbing mode distribution",
-    "styleDistribution": "Climbing style distribution"
+    "styleDistribution": "Climbing style distribution",
+    "climbTypeDistribution": "Climbing type distribution",
+    "sessionTypeDistribution": "Session type distribution",
+    "sessionLocationDistribution": "Session location distribution"
 }
