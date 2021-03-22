@@ -89,5 +89,7 @@
 
     "---------- Stats ----------": "",
     "stats": "Statistics",
-    "gradeDistribution": "Grade distribution"
+    "gradeDistribution": "Grade distribution",
+    "modeDistribution": "Climbing mode distribution",
+    "styleDistribution": "Climbing style distribution"
 }

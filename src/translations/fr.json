@@ -89,6 +89,9 @@
 
     "---------- Stats ----------": "",
     "stats": "Statistiques",
-    "gradeDistribution": "Distribution des cotations"
+    "gradeDistribution": "Distribution des cotations",
+    "modeDistribution": "Distribution des modes d'escalade",
+    "styleDistribution": "Distribution des styles d'escalade"
+
 
 }

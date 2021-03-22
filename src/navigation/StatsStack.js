@@ -3,8 +3,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import Stats from '../screens/Stats'
-import GradeDistribution from '../screens/Stats/GradeDistribution'
-import ModeDistribution from '../screens/Stats/ModeDistribution'
+import Pie from '../screens/Stats/Pie'
 
 import { translate } from '../translations'
 
@@ -21,8 +20,7 @@ const StatsStack = () => {
     return (
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen name="Stats" component={Stats} options={() => ({ title: translate('stats') })}/>
-            <Stack.Screen name="GradeDistribution" component={GradeDistribution} options={() => ({ title: translate('gradeDistribution') })}/>
-            <Stack.Screen name="ModeDistribution" component={ModeDistribution} options={() => ({ title: translate('modeDistribution') })}/>
+            <Stack.Screen name="Pie" component={Pie} options={({ route }) => ({ title: route.params.title })}/>
         </Stack.Navigator>
     )
 }
