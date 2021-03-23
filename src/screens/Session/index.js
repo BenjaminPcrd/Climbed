@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 
 import {
     FlatList,
-    Alert
+    Alert,
+    BackHandler
 } from 'react-native'
 
+import { useFocusEffect } from '@react-navigation/core'
 import { HeaderBackButton } from '@react-navigation/stack'
 
 import { deleteClimb } from '../../asyncStorageApi'
@@ -15,12 +17,22 @@ import Empty from './empty'
 
 import { translate } from '../../translations'
 
+
 const Session = ({ navigation, route }) => {
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => <HeaderBackButton tintColor='white' onPress={() => navigation.navigate('Sessions')} />
         })
     }, [])
+
+    useFocusEffect(() => {
+        const onBackPress = () => {
+            navigation.navigate('Sessions')
+            return true
+        }
+        BackHandler.addEventListener('hardwareBackPress', onBackPress);
+        return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress)
+    })
 
     const onEditClimbPress = (climbToEdit) => {
         navigation.navigate('AddClimb', { session: route.params.session, climbToEdit })

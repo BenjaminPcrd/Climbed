@@ -24,15 +24,6 @@ const Stats = ({ navigation }) => {
             .catch(e => console.error(e))
     }, [])
 
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            getSessions()
-                .then(newSessions => setSessions(newSessions))
-                .catch(e => console.error(e))
-        })
-        return unsubscribe
-    }, [navigation])
-
     const getGradeDistributionData = () => {
         let grades = sessions.map(s => s.climbs).flat().map(c => c.grade)
         let sport = grades.map(g => g.grade).sort((a, b) => gradesTab['SPORT_CLIMBING']['FR'].indexOf(a) - gradesTab['SPORT_CLIMBING']['FR'].indexOf(b))
