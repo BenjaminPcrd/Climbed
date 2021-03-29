@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import {
     View,
@@ -11,23 +11,32 @@ import {
 
 import { PieChart } from 'react-native-charts-wrapper'
 
+import { translate } from '../../translations'
+
 const Pie = ({ route }) => {
+    const flatList = useRef(null)
     const [colors, setColors] = useState(Array.from({ length: route.params.data.values.length }, () => processColor('lightgrey')))
     const [centerText, setCenterText] = useState('')
     const [selectedLabel, setSelectedLabel] = useState('')
     const [selectedHighlight, setSelectedHighlight] = useState([])
 
     const onSelect = item => {
-        setSelectedLabel(item.label)
-        let total = route.params.data.values.map(i => i.value).reduce((accu, curr) => accu + curr)
-        setCenterText(item.value && Math.floor(item.value / total * 100).toString() + '%')
         let index = route.params.data.values.findIndex(i => item.label === i.label)
-        index >= 0 ? setSelectedHighlight([{ x: index }]) : setSelectedHighlight([])
+        if(index >= 0) {
+            setSelectedHighlight([{ x: index }])
+            let total = route.params.data.values.map(i => i.value).reduce((accu, curr) => accu + curr)
+            setCenterText(Math.floor(item.value / total * 100).toString() + '%')
+            flatList.current.scrollToIndex({ index, viewPosition: 0.5 })
+        } else {
+            flatList.current.scrollToIndex({ index: 0, viewPosition: 0.5 })
+            setSelectedHighlight([])
+        }
         setColors(Array.from({ length: route.params.data.values.length }, (_, i) => i == index ? processColor('darkblue') : processColor('lightgrey')))
+        setSelectedLabel(item.label)
     }
 
     const renderItem = ({ item }) => {
-        if(item.label === 'Total') {
+        if(item.label === translate('total')) {
             return (
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={[styles.rowText, styles.totalRowText]}>{item.label}</Text>
@@ -100,7 +109,8 @@ const Pie = ({ route }) => {
                 keyExtractor={(item, index) => item + index}
                 renderItem={renderItem}
                 ItemSeparatorComponent={() => <View style={{ height: 1, backgroundColor: 'lightgrey' }}/>}
-                ListHeaderComponent={() => renderItem({ item: { label: 'Total', value: route.params.data.values.map(i => i.value).reduce((accu, curr) => accu + curr) }})}
+                ListHeaderComponent={() => renderItem({ item: { label: translate('total'), value: route.params.data.values.map(i => i.value).reduce((accu, curr) => accu + curr) }})}
+                ref={flatList}
             />
         </View>       
     )

@@ -91,6 +91,7 @@
 
     "---------- Stats ----------": "",
     "stats": "Statistics",
+    "total": "Total",
     "gradeDistribution": "Grade distribution",
     "modeDistribution": "Climbing mode distribution",
     "styleDistribution": "Climbing style distribution",
