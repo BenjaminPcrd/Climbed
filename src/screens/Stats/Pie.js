@@ -12,20 +12,29 @@ import {
 import { PieChart } from 'react-native-charts-wrapper'
 
 const Pie = ({ route }) => {
-    const [colors, setColors] = useState(Array.from({ length: route.params.data.values.length }, () => processColor('grey')))
+    const [colors, setColors] = useState(Array.from({ length: route.params.data.values.length }, () => processColor('lightgrey')))
     const [centerText, setCenterText] = useState('')
     const [selectedLabel, setSelectedLabel] = useState('')
     const [selectedHighlight, setSelectedHighlight] = useState([])
 
     const onSelect = item => {
         setSelectedLabel(item.label)
-        setCenterText(item.value?.toString())
+        let total = route.params.data.values.map(i => i.value).reduce((accu, curr) => accu + curr)
+        setCenterText(item.value && Math.floor(item.value / total * 100).toString() + '%')
         let index = route.params.data.values.findIndex(i => item.label === i.label)
         index >= 0 ? setSelectedHighlight([{ x: index }]) : setSelectedHighlight([])
-        setColors(Array.from({ length: route.params.data.values.length }, (_, i) => i == index ? processColor('darkblue') : processColor('grey')))
+        setColors(Array.from({ length: route.params.data.values.length }, (_, i) => i == index ? processColor('darkblue') : processColor('lightgrey')))
     }
 
     const renderItem = ({ item }) => {
+        if(item.label === 'Total') {
+            return (
+                <View style={{ flexDirection: 'row' }}>
+                    <Text style={[styles.rowText, styles.totalRowText]}>{item.label}</Text>
+                    <Text style={[styles.rowText, styles.totalRowText]}>{item.value}</Text>
+                </View>
+            )
+        }
         return (
             <Pressable style={styles.row} onPress={() => onSelect(selectedLabel === item.label ? {} : item)}>
                 <View style={[styles.selector, { width: selectedLabel === item.label ? 3 : 0 }]}/>
@@ -47,7 +56,7 @@ const Pie = ({ route }) => {
                             colors: colors,
                             valueTextSize: 18,
                             valueTextColor: processColor('black'),
-                            sliceSpace: 5,
+                            sliceSpace: 3,
                             selectionShift: 10,
                             drawValues: false,
                             valueFormatter: "###",
@@ -76,7 +85,7 @@ const Pie = ({ route }) => {
                 centerTextRadiusPercent={100}
 
                 holeRadius={75}
-                holeColor={processColor('#f0f0f0')}
+                holeColor={processColor('white')}
 
                 transparentCircleRadius={0}
                 transparentCircleColor={processColor('transparent')}
@@ -91,6 +100,7 @@ const Pie = ({ route }) => {
                 keyExtractor={(item, index) => item + index}
                 renderItem={renderItem}
                 ItemSeparatorComponent={() => <View style={{ height: 1, backgroundColor: 'lightgrey' }}/>}
+                ListHeaderComponent={() => renderItem({ item: { label: 'Total', value: route.params.data.values.map(i => i.value).reduce((accu, curr) => accu + curr) }})}
             />
         </View>       
     )
@@ -113,6 +123,9 @@ const styles = StyleSheet.create({
         flex: 1,
         textAlign: 'center',
         paddingVertical: 10
+    },
+    totalRowText: {
+        fontWeight: 'bold'
     },
     selector: {
         backgroundColor: 'darkblue'
