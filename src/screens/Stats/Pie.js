@@ -28,6 +28,7 @@ const Pie = ({ route }) => {
             setCenterText(Math.floor(item.value / total * 100).toString() + '%')
             flatList.current.scrollToIndex({ index, viewPosition: 0.5 })
         } else {
+            setCenterText('')
             flatList.current.scrollToIndex({ index: 0, viewPosition: 0.5 })
             setSelectedHighlight([])
         }
