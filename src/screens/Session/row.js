@@ -26,7 +26,7 @@ const Row = ({ item, onPress, onLongPress }) => {
 
             <View style={{ flex: 2 }}>
                 <Text style={styles.name}>{item.name}</Text>
-                <Text style={styles.mode}>{translate(item.mode)}</Text>
+                {item.mode && <Text style={styles.mode}>{translate(item.mode)}</Text>}
                 {item.pitches && <Text style={styles.pitches}> - {item.pitches} {translate('pitches')}</Text>}
             </View>
 
