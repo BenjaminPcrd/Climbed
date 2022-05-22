@@ -92,6 +92,7 @@
     "---------- Stats ----------": "",
     "stats": "Statistiques",
     "total": "Total",
+    "noDataMsg" : "Aucune donnée disponible",
     "gradeDistribution": "Distribution des cotations",
     "modeDistribution": "Distribution des modes d'escalade",
     "styleDistribution": "Distribution des styles d'escalade",

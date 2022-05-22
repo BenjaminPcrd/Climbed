@@ -9,6 +9,8 @@ import {
     StyleSheet
 } from 'react-native'
 
+import Icon from 'react-native-vector-icons/Foundation'
+
 import { PieChart } from 'react-native-charts-wrapper'
 
 import { translate } from '../../translations'
@@ -54,6 +56,19 @@ const Pie = ({ route }) => {
         )
     }
 
+    if (route.params.data.values <= 0) {
+        return (
+            <View style={styles.emptyContainer}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Icon name='mountains' size={50}/>   
+                </View>
+                <View style={{ flex: 3, justifyContent: 'center' }}>
+                    <Text style={styles.msg}>{translate('noDataMsg')}</Text>
+                </View>
+            </View>
+        )
+    }
+    
     return (
         <View style={styles.mainContainer}>
             <PieChart
@@ -140,7 +155,22 @@ const styles = StyleSheet.create({
     },
     selector: {
         backgroundColor: 'darkblue'
+    },
+    emptyContainer: {
+        flexDirection: 'row',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: 'lightgrey',
+        marginTop: 10,
+        marginHorizontal: 10,
+        paddingVertical: 10
+    },
+    msg: {
+        color: 'darkblue',
+        fontSize: 20,
+        fontWeight: 'bold'
     }
 })
+
 
 export default Pie

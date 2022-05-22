@@ -92,6 +92,7 @@
     "---------- Stats ----------": "",
     "stats": "Statistics",
     "total": "Total",
+    "noDataMsg" : "No data available",
     "gradeDistribution": "Grade distribution",
     "modeDistribution": "Climbing mode distribution",
     "styleDistribution": "Climbing style distribution",
