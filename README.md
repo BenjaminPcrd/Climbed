@@ -18,8 +18,6 @@ This application allows you to log your climbs and make statistics.
 
 ## Usage
 
-### Option 1: Using React-Native-Rename
-
 - Go to the project's root folder and run `npm install`.
 - Run `npm start` and `npm run android` to start your application!
 
